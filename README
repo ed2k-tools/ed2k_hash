@@ -1,1 +1,26 @@
+README:
+
+Quick install:
+
+./configure
+make
+make install (probably you need to be root for that)
+
+
+if 'make' fails with an error like 'missing separator', do a:
+
+make -f admin/Makefile.common cvs
+
+and do the above again.
+
+
+Please file bugs and/or comments here:
+
+http://sourceforge.net/projects/ed2k-tools/
+
+You can contact me by e-mail: uberdork at users dot sourceforge dot net
+
+Enjoy!
+
+
 
