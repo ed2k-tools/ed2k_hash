@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#if defined(__WIN32)
+
 #include "reg.h"
 
 HKEY open_key(const char *name)
@@ -83,3 +85,6 @@ int read_integer(HKEY hKey,
                     &dwSize);
     return (int)dwValue;
 }
+
+#endif
+

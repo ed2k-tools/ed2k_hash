@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#if defined(__WIN32)
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -449,3 +451,6 @@ void cleanup_thread()
        _queue_sz = 0;
     }
 }
+
+#endif
+

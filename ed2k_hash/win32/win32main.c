@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#if defined(__WIN32)
+
 #include <windows.h>
 #include <commctrl.h>
 #include <shlobj.h>
@@ -504,3 +506,6 @@ LRESULT CALLBACK About(HWND hDlg,
 
     return FALSE;
 }
+
+#endif
+

@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#if defined(__WIN32)
+
 #include "config.h"
 #include "options.h"
 #include "param.h"
@@ -80,3 +82,6 @@ LRESULT CALLBACK ConfigProc(HWND hDlg,
 
     return FALSE;
 }
+
+#endif
+

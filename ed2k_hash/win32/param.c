@@ -15,6 +15,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#if defined(__WIN32)
+
 #include "options.h"
 #include "param.h"
 #include "reg.h"
@@ -73,3 +75,6 @@ void save_options_to_registry()
     write_integer(hKey, "recursive", option_recursive);
     close_key(hKey);
 }
+
+#endif
+
