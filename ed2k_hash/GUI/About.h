@@ -26,14 +26,24 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: About.h,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
+// $Id: About.h,v 1.2 2003/06/15 14:54:08 fraca7 Exp $
 
 #ifndef _ABOUT_H
 #define _ABOUT_H
 
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Multiline_Output.H>
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
+#ifdef HAVE_FL_WITH_LC_H
+# include <FL/Fl_Window.h>
+# include <FL/Fl_Button.h>
+# include <FL/Fl_Multiline_Output.h>
+#else
+# include <FL/Fl_Window.H>
+# include <FL/Fl_Button.H>
+# include <FL/Fl_Multiline_Output.H>
+#endif
 
 class About : public Fl_Window
 {
@@ -51,3 +61,6 @@ class About : public Fl_Window
 };
 
 #endif /* _ABOUT_H */
+
+
+

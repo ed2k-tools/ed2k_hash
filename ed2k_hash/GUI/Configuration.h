@@ -26,14 +26,24 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: Configuration.h,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
+// $Id: Configuration.h,v 1.2 2003/06/15 14:54:08 fraca7 Exp $
 
 #ifndef _CONFIGURATION_H
 #define _CONFIGURATION_H
 
-#include <FL/Fl_Button.H>
-#include <FL/Fl_Window.H>
-#include <FL/Fl_Pack.H>
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
+#ifdef HAVE_FL_WITH_LC_H
+# include <FL/Fl_Button.h>
+# include <FL/Fl_Window.h>
+# include <FL/Fl_Pack.h>
+#else
+# include <FL/Fl_Button.H>
+# include <FL/Fl_Window.H>
+# include <FL/Fl_Pack.H>
+#endif
 
 // Globals
 extern int cf_htmllink;

@@ -1,17 +1,24 @@
-README:
+======
+README
+======
 
-Quick install:
+For Windows, check out the README file
+in ed2k_hash/GUI/README
+
+
+
+Linux people will just have to do the usual
 
 ./configure
 make
-make install (probably you need to be root for that)
+su -c "make install"  (+ type in root password)
 
 
-if 'make' fails with an error like 'missing separator', do a:
+If you have the FLTK-1.1 library and its
+development headers (you need both!) installed,
+a GUI version of ed2k_hash will be built automatically
+in addition to the commandlinen version on *nix.
 
-make -f admin/Makefile.common cvs
-
-and do the above again.
 
 
 Please file bugs and/or comments here:

@@ -26,13 +26,19 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: Configuration.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
+// $Id: Configuration.cpp,v 1.2 2003/06/15 14:54:08 fraca7 Exp $
 
 #include "Configuration.h"
 
-#include <FL/Fl_Valuator.H> // for FL_HORIZONTAL and FL_VERTICAL
-#include <FL/Fl_Return_Button.H>
-#include <FL/Fl_Check_Button.H>
+#ifdef HAVE_FL_WITH_LC_H
+# include <FL/Fl_Valuator.h> // for FL_HORIZONTAL and FL_VERTICAL
+# include <FL/Fl_Return_Button.h>
+# include <FL/Fl_Check_Button.h>
+#else
+# include <FL/Fl_Valuator.H> // for FL_HORIZONTAL and FL_VERTICAL
+# include <FL/Fl_Return_Button.H>
+# include <FL/Fl_Check_Button.H>
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -265,4 +271,4 @@ void save_config()
 #endif
 }
 
-static const char* _rcsid_Config __attribute__((unused)) = "$Id: Configuration.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $";
+static const char* _rcsid_Config __attribute__((unused)) = "$Id: Configuration.cpp,v 1.2 2003/06/15 14:54:08 fraca7 Exp $";

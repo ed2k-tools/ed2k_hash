@@ -6,13 +6,17 @@ ed2k_hash.dev is the Dev-C++ project file for Windows. You don't need
 Dev-C++ to build under Windows, but you'll have to edit Makefile.win
 and use it with Mingw/GCC 3.2.
 
-For Linux, the usual
+======================================================================
+For Linux, do the usual 
 
 ./configure
 make
-make install
+make install (as root)
 
-should do the trick.
+in the top level source directory. If you have both the 
+FLTK-1.1 libraries, and the FLTK-1.1 library development
+headers installed, a GUI version will be built in addition 
+to the command line version.
 
 You will need the libraries listed below AND their respective
  development headers (-dev or -devel package).
@@ -21,6 +25,7 @@ If you checked out ed2k_hash from CVS, you will need to run
  ./autogen.sh in order to create the 'configure' script. You
  will need aclocal, autoconf, and automake for this.
 
+======================================================================
 
 DEPENDENCIES
 

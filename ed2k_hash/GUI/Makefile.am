@@ -1,21 +1,35 @@
 
 bin_PROGRAMS=ed2k_hash_gui
-SUFFIXES=.c
 
-ed2k_hash_gui_SOURCES=\
-	../global.h ../ui.h \
-	../linkedlist.h ../linkedlist.c \
-	../md4.h ../md4.c \
-	../options.h ../options.c \
-	../main.c \
-	../processfile.h ../processfile.c \
-	gui.cpp \
-	Thread.h Thread.cpp \
-	Mutex.h Mutex.cpp \
-	Semaphore.h Semaphore.cpp \
-	Event.h Event.cpp \
-	JobQueue.h JobQueue.cpp \
-	MainWindow.h MainWindow.cpp \
-	Configuration.h Configuration.cpp \
-	About.h About.cpp \
-	../ui.h ui.cpp
+ed2k_hash_gui_CXXFLAGS = -I.. -D_GUI
+ed2k_hash_gui_CFLAGS = -I.. -D_GUI
+ed2k_hash_gui_LDADD = -lfltk
+
+
+ed2k_hash_gui_SOURCES = \
+ ../linkedlist.c        \
+ ../main.c              \
+ ../md4.c               \
+ ../options.c           \
+ ../processfile.c       \
+ gui.cpp                \
+ Thread.cpp             \
+ Mutex.cpp              \
+ Semaphore.cpp          \
+ Event.cpp              \
+ JobQueue.cpp           \
+ MainWindow.cpp         \
+ Configuration.cpp      \
+ About.cpp              \
+ ui.cpp
+
+EXTRA_DIST =     \
+ About.h         \
+ Configuration.h \
+ Event.h         \
+ JobQueue.h      \
+ MainWindow.h    \
+ Mutex.h         \
+ Semaphore.h     \
+ Thread.h
+        

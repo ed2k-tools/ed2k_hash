@@ -17,6 +17,49 @@ AC_PREFIX_DEFAULT(/usr/local)
 
 AM_CONFIG_HEADER(config.h)
 
+AC_LANG_CPLUSPLUS
+
+dnl ==============================================================
+dnl Check for the FLTK toolkit.
+dnl
+dnl Sometimes header files are like FL/Fl_Window.h, and
+dnl sometimes they are like FL/Fl_Window.H. Unfortunately,
+dnl this is not straight-forward to distinguish with the
+dnl test result defines in config.h, as they all get 
+dnl capitalised.
+dnl 
+dnl So we have to define our own: HAVE_FL_WITH_LC_H 
+dnl ==============================================================
+
+want_fltk_gui=no
+have_fltk_headers=no 
+
+AC_CHECK_LIB(fltk,main,[have_fltk_libs=yes],[have_fltk_libs=no])
+
+AC_CHECK_HEADERS([FL/Fl.h],[
+  AC_DEFINE(HAVE_FL_WITH_LC_H,,[The .h in FL/Fl_foo.h is lower case, not upper case])
+  have_fltk_headers=yes
+])
+
+AC_CHECK_HEADERS([FL/Fl_Window.H], [
+  AC_DEFINE(HAVE_FL_WITH_UC_H,,[The .H in FL/Fl_foo.H is upper case, not lower case])
+  have_fltk_headers=yes
+])
+
+if test "x$have_fltk_headers" == "xyes"
+then
+  if test "x$have_fltk_libs" == "xyes"
+  then
+    want_fltk_gui=yes
+  fi
+fi
+
+AM_CONDITIONAL([FLTK_OPT], [ test "x$want_fltk_gui" == "xyes" ])
+
+dnl ===========================
+dnl output Makefiles
+dnl ===========================
+
 AC_OUTPUT([
 ./Makefile
 ed2k_hash/Makefile

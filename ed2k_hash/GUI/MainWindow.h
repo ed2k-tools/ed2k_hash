@@ -18,13 +18,25 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <FL/Fl_Window.h>
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
 
-#include <FL/Fl_Multi_Browser.H>
-#include <FL/Fl_Menu_Bar.H>
-#include <FL/Fl_Progress.H>
-#include <FL/Fl_Tile.H>
-#include <FL/Fl_Pack.H>
+#ifdef HAVE_FL_WITH_LC_H
+# include <FL/Fl_Window.h>
+# include <FL/Fl_Multi_Browser.h>
+# include <FL/Fl_Menu_Bar.h>
+# include <FL/Fl_Progress.h>
+# include <FL/Fl_Tile.h>
+# include <FL/Fl_Pack.h>
+#else
+# include <FL/Fl_Window.H>
+# include <FL/Fl_Multi_Browser.H>
+# include <FL/Fl_Menu_Bar.H>
+# include <FL/Fl_Progress.H>
+# include <FL/Fl_Tile.H>
+# include <FL/Fl_Pack.H>
+#endif
 
 #include "JobQueue.h"
 

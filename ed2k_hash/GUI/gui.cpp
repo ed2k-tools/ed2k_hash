@@ -15,7 +15,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <FL/Fl.H>
+#ifdef HAVE_CONFIG_H
+# include <config.h>
+#endif
+
+#ifdef HAVE_FL_WITH_LC_H
+# include <FL/Fl.h>
+#else
+# include <FL/Fl.H>
+#endif
 
 #include "MainWindow.h"
 #include "Configuration.h"
