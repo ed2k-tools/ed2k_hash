@@ -117,15 +117,38 @@ void MainWindow::addJob(const char *fn, OPT_STRUCT *opt)
 
 void MainWindow::setProgress(const char *l, float d)
 {
-    Fl::lock();
-    if (_label)
-       free(_label);
-    _label = strdup(l);
+    bool c;
+    static int lastpc = -1;
 
-    _prog->value(d);
-    _prog->label(_label);
+    Fl::lock();
+    c = false;
+    if (_label)
+    {
+        if (strcmp(_label, l))
+        {
+            free(_label);
+            _label = strdup(l);
+            _prog->label(_label);
+            c = true;
+        }
+    }
+    else
+    {
+        _label = strdup(l);
+        _prog->label(_label);
+        c = true;
+    }
+
+    if ((int)d != lastpc)
+    {
+        lastpc = (int)d;
+        _prog->value(lastpc);
+        c = true;
+    }
+
     Fl::unlock();
-    Fl::awake(_prog);
+    if (c)
+        Fl::awake(_prog);
 }
 
 void MainWindow::quit_cb(Fl_Widget *w)

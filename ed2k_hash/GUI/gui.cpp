@@ -28,6 +28,7 @@ int main (int argc, char *argv[])
 
     load_config();
     AppWindow = new MainWindow();
+    Fl::lock();
     ret = Fl::run();
     save_config();
     return ret;
