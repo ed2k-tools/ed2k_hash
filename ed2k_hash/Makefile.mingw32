@@ -1,0 +1,15 @@
+
+#
+# primitive makefile to build ed2k_hash with
+# Mingw32
+#
+
+CC=gcc
+CFLAGS=-O2 -march=i486
+#CFLAGS=-g -Wall
+CPPFLAGS=-D__WIN32
+TARGET=ed2k_hash
+OBJS=cl_ui.o linkedlist.o main.o md4.o options.o processfile.o
+
+$(TARGET): $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS)
