@@ -322,7 +322,9 @@ process_one_block (fileinfo *fi, unsigned int b)
 		blocksize = fi->size % BLOCKSIZE;
 
 	if (blocksize==0)	/* this case shouldn't happen */
-		return 0;
+           /* fraca7, 17/05/2003: it happens.
+              return 0; */
+           blocksize = BLOCKSIZE;
 
 	left = blocksize;
 	MD4_Init (&context);
