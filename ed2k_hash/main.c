@@ -291,7 +291,7 @@ static int
 read_directory (char *fn, SList **p_list)
 {
     char *pat = (char*)malloc(strlen(fn) + 5);
-    strcpy(pat, fn, pat);
+    strcpy(pat, fn);
     int fullpathlen = strlen(pat);
 
     if (pat[strlen(pat) - 1] != '\\')
@@ -309,7 +309,7 @@ read_directory (char *fn, SList **p_list)
        {
           if ((data.cFileName[0] != '.'))  /* don't even know if it's meaningful under Windows :) */
           {
-             char *fullname = (char*)malloc(fulpathlen + strlen(data.cFileName) + 1);
+             char *fullname = (char*)malloc(fullpathlen + strlen(data.cFileName) + 1);
              sprintf(fullname, "%.*s%s", fullpathlen, pat, data.cFileName);
 
              /* could use is_directory, but it's more efficient this way */
