@@ -62,17 +62,35 @@ MainWindow::MainWindow()
         { 0 },
       { 0 }
     };
-    
-    _list = new Fl_Multi_Browser(0, 30, 600, 250);
+
     _menu = new Fl_Menu_Bar(0, 0, 600, 30);
-    _prog = new Fl_Progress(0, 280, 600, 20, "Ready...");
+    _menu->menu(menu_items);
+
+    _pck = new Fl_Pack(0, 30, 600, 270);
+    _pck->type(FL_VERTICAL);
+
+    _tile = new Fl_Tile(0, 0, 600, 30);
+    new Fl_Button(0, 0, 400, 30, "Hash");
+    new Fl_Button(400, 0, 200, 30, "File");
+    _tile->end();
+    _tile->callback(&MainWindow::_tile_cb, this);
+
+    _list = new Fl_Multi_Browser(0, 30, 600, 220);
+    _cols[0] = 400;
+    _cols[1] = 200;
+    _cols[2] = 0;
+    _list->column_widths(_cols);
+
+    _prog = new Fl_Progress(0, 250, 600, 20, "Ready...");
 
     _prog->minimum(0);
     _prog->maximum(100);
 
+    _pck->end();
+    _pck->resizable(_list);
+
     end();
-    resizable(_list);
-    _menu->menu(menu_items);
+    resizable(_pck);
     show();
 
     _queue = new JobQueue();
@@ -85,8 +103,8 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
+    delete _pck;
     delete _menu;
-    delete _list;
     _queue->cancel();
     _queue->join();
     delete _queue;
@@ -190,14 +208,15 @@ void MainWindow::copy_cb(Fl_Widget *w)
     char *data = NULL;
     int l = 0, lb = 0;
 
-    Fl::lock();
-
     for (int k = 1; k <= _list->size(); ++k)
     {
        if (_list->selected(k))
        {
           const char *bf = _list->text(k);
-          int lg = strlen(bf);
+
+          int lg = 0;
+          while (bf[lg] && (bf[lg] != '\t')) ++lg;
+
           while (lg + l > lb * 512)
           {
              lb++;
@@ -214,42 +233,33 @@ void MainWindow::copy_cb(Fl_Widget *w)
     }
     data[l] = 0;
 
-    Fl::unlock();
-
     Fl::copy(data, l+1, 0); // FIXME 1 sous Windows ?
     free(data);
 }
 
 void MainWindow::select_none_cb(Fl_Widget *w)
 {
-    Fl::lock();
     _list->deselect();
-    Fl::unlock();
 }
 
 void MainWindow::select_all_cb(Fl_Widget *w)
 {
-    Fl::lock();
     for (int k = 1; k <= _list->size(); ++k)
     {
        _list->select(k);
     }
-    Fl::unlock();
 }
 
 void MainWindow::select_invert_cb(Fl_Widget *w)
 {
-    Fl::lock();
     for (int k = 1; k <= _list->size(); ++k)
     {
        _list->select(k, !_list->selected(k));
     }
-    Fl::unlock();
 }
 
 void MainWindow::select_delete_cb(Fl_Widget *w)
 {
-    Fl::lock();
     int k = 1;
     while (k <= _list->size())
     {
@@ -262,7 +272,6 @@ void MainWindow::select_delete_cb(Fl_Widget *w)
           ++k;
        }
     }
-    Fl::unlock();
 }
 
 void MainWindow::cancel_cb(Fl_Widget *w)
@@ -275,12 +284,10 @@ void MainWindow::pause_cb(Fl_Widget *w)
 {
     if (!_queue->isPaused())
     {
-       Fl::lock();
        _queue->pause();
        _old_label = _label;
        _label = 0;
        _prog->label("Paused");
-       Fl::unlock();
     }
 }
 
@@ -288,7 +295,6 @@ void MainWindow::resume_cb(Fl_Widget *w)
 {
     if (_queue->isPaused())
     {
-       Fl::lock();
        _queue->resume();
        if (_old_label)
        {
@@ -299,7 +305,6 @@ void MainWindow::resume_cb(Fl_Widget *w)
           _old_label = 0;
           _prog->label(_label);
        }
-       Fl::unlock();
     }
 }
 
@@ -309,6 +314,16 @@ void MainWindow::about_cb(Fl_Widget *w)
     while (a->shown())
        Fl::wait();
     delete a;
+}
+
+void MainWindow::tile_cb(Fl_Widget *w)
+{
+    for (int k = 0; k<2; ++k)
+    {
+       Fl_Widget *o = _tile->child(k);
+       _cols[k] = o->w();
+    }
+    _list->redraw();
 }
 
 //==============================================================================
@@ -378,6 +393,11 @@ void MainWindow::_resume_cb(Fl_Widget *w, void *p)
 void MainWindow::_about_cb(Fl_Widget *w, void *p)
 {
     ((MainWindow*)p)->about_cb(w);
+}
+
+void MainWindow::_tile_cb(Fl_Widget *w, void *p)
+{
+    ((MainWindow*)p)->tile_cb(w);
 }
 
 //==============================================================================

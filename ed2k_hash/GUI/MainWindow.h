@@ -23,6 +23,8 @@
 #include <FL/Fl_Multi_Browser.h>
 #include <FL/Fl_Menu_Bar.h>
 #include <FL/Fl_Progress.h>
+#include <FL/Fl_Tile.h>
+#include <FL/Fl_Pack.h>
 
 #include "JobQueue.h"
 
@@ -58,11 +60,14 @@ class MainWindow : public Fl_Window
     void resume_cb(Fl_Widget*);
 
     void about_cb(Fl_Widget*);
+    void tile_cb(Fl_Widget*);
 
   private:
     Fl_Multi_Browser *_list;
     Fl_Menu_Bar *_menu;
     Fl_Progress *_prog;
+    Fl_Tile *_tile;
+    Fl_Pack *_pck;
 
     JobQueue *_queue;
 
@@ -85,6 +90,9 @@ class MainWindow : public Fl_Window
     static void _resume_cb(Fl_Widget*, void*);
 
     static void _about_cb(Fl_Widget*, void*);
+    static void _tile_cb(Fl_Widget*, void*);
+
+    int _cols[3];
 };
 
 #endif
