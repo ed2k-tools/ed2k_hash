@@ -1,4 +1,11 @@
-ed2k-hash (0.3.2-1) unstbale; urgency=low
+ed2k-hash (0.3.3-1) unstable; urgency=low
+
+  * several memory leaks fixed
+  * builds on win32 now
+
+ -- Tim-Philipp Müller <t.i.m@orange.net>  Tue,   11 Dec 2002 18:55:00 +0000
+
+ed2k-hash (0.3.2-1) unstable; urgency=low
 
   * builds on MacOSX now
 

@@ -23,12 +23,12 @@ cflags=
 cppflags=
 cxxflags=\s-O0 -g3 -Wall
 ldadd=
-ldflags=\s\s
+ldflags=\s \s
 
 [General]
 AMChanged=false
 author=Tim-Philipp Müller
-configure_args=
+configure_args=\s--build=i386-linux --host=i386-linux --target=i386-linux\s
 email=t.i.m@orange.net
 kdevprj_version=1.3
 lfv_open_groups=
@@ -40,7 +40,7 @@ project_type=normal_c
 sgml_file=/home/tim/projects/ed2k_hash/ed2k_hash/docs/en/index.sgml
 short_info=
 sub_dir=ed2k_hash/
-version=0.3.1
+version=0.3.3
 version_control=CVS
 workspace=1
 
@@ -81,9 +81,27 @@ install_location=
 type=DATA
 
 [debian/Makefile.am]
-files=
+files=debian/control,debian/changelog,debian/rules
 sub_dirs=
 type=normal
+
+[debian/changelog]
+dist=true
+install=false
+install_location=
+type=DATA
+
+[debian/control]
+dist=true
+install=false
+install_location=
+type=DATA
+
+[debian/rules]
+dist=true
+install=false
+install_location=
+type=DATA
 
 [ed2k_hash.kdevprj]
 dist=true
