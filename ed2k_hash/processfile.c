@@ -72,7 +72,9 @@ static int					process_one_block (fileinfo *fi, unsigned int b);
 int
 process_file (const char *fn, fileinfo *info)
 {
-	const char      hexdigits[16] = "0123456789abcdef";
+    /* const char      hexdigits[16] = "0123456789abcdef"; */
+        const char      hexdigits[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                                          'a', 'b', 'c', 'd', 'e', 'f' };
 	unsigned int    b, j;
 	fileinfo        fi;
 	int             fd;
@@ -151,18 +153,31 @@ process_file (const char *fn, fileinfo *info)
 		if (map == MAP_FAILED)
 		{
 			ui_printerr ("in %s - mmap() failed: %s\n", __FUNCTION__, strerror(errno));
+                        /* JL 18/05/2003 resource leak */
+                        close(fd);
 			return 0;
 		}
 
 		MD4_Init   (&context);
-		MD4_Update (&context, map+off_difference, len-off_difference);
+		MD4_Update (&context, (unsigned char*)map+off_difference, len-off_difference);
 		MD4_Final  (fi.parthashes+(b*16), &context);
 
 		if (munmap (map, len) != 0)
 		{
 			ui_printerr ("in %s - munmap() failed: %s\n", __FUNCTION__, strerror(errno));
+                        /* JL 18/05/2003 resource leak */
+                        close(fd);
 			return 0;
 		}
+
+                /* JL 18/05/2003 call to ui_update missing */
+                if (!ui_update(fi.basename,
+                               fi.size,
+                               b * BLOCKSIZE + len)) /* is this accurate ? */
+                {
+                   close(fd);
+                   return 0;
+                }
 
 		if ((option_debug)||(option_verbose))
 		{
@@ -211,7 +226,9 @@ process_file (const char *fn, fileinfo *info)
 int
 process_file (const char *fn, fileinfo *info)
 {
-	const char		hexdigits[16] = "0123456789abcdef";
+	/* const char		hexdigits[16] = "0123456789abcdef"; */
+	const char      hexdigits[16] = { '0', '1', '2', '3', '4', '5', '6', '7',
+	                                  '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 	unsigned int	b, j;
 	fileinfo		fi;
 
@@ -342,7 +359,7 @@ process_one_block (fileinfo *fi, unsigned int b)
 			return 0;
 		}
 
-		MD4_Update (&context, (void*)buf, readnow);
+		MD4_Update (&context, buf, readnow);
 
 		left -= readnow;
 
@@ -352,7 +369,11 @@ process_one_block (fileinfo *fi, unsigned int b)
 			return 0;
                 */
                 if (!ui_update (fi->filepath, fi->size, blocksize - left + b * BLOCKSIZE) )
+                {
+                        /* JL 18/05/2003 resource leak */
+                        fclose(f);
                         return 0;
+                }
 	}
 
 	MD4_Final (hash, &context);

@@ -5,28 +5,67 @@ CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o MainWindow.o $(RES)
-LINKOBJ  = main.o MainWindow.o $(RES)
+OBJ  = MainWindow.o ui.o JobQueue.o Mutex.o Semaphore.o Thread.o Configuration.o Event.o ../linkedlist.o ../main.o ../md4.o ../options.o ../processfile.o gui.o About.o $(RES)
+LINKOBJ  = MainWindow.o ui.o JobQueue.o Mutex.o Semaphore.o Thread.o Configuration.o Event.o ../linkedlist.o ../main.o ../md4.o ../options.o ../processfile.o gui.o About.o $(RES)
 LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lfltk -lole32 -luuid -lcomctl32 -lwsock32 -lm 
 INCS =  -I"C:/Dev-Cpp/include"  -I".." 
 CXXINCS =  -I"C:/Dev-Cpp/include/c++"  -I"C:/Dev-Cpp/include/c++/mingw32"  -I"C:/Dev-Cpp/include/c++/backward"  -I"C:/Dev-Cpp/include"  -I".." 
-BIN  = ed2k_hash.exe
-CXXFLAGS = $(CXXINCS)-D__WIN32  
-CFLAGS = $(INCS)-DWIN32 -mms-bitfields  
+BIN  = ed2k_hash_gui.exe
+CXXFLAGS = $(CXXINCS)-D__WIN32 -DPROTOTYPES=1 -D_GUI   -fexpensive-optimizations -O3
+CFLAGS = $(INCS)-DWIN32 -mms-bitfields -DPROTOTYPES=1 -D_GUI   -fexpensive-optimizations -O3
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before ed2k_hash.exe all-after
+all: all-before ed2k_hash_gui.exe all-after
 
 
 clean: clean-custom
 	rm -f $(OBJ) $(BIN)
 
 $(BIN): $(LINKOBJ)
-	$(CPP) $(LINKOBJ) -o "ed2k_hash.exe" $(LIBS)
-
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+	$(CPP) $(LINKOBJ) -o "ed2k_hash_gui.exe" $(LIBS)
 
 MainWindow.o: MainWindow.cpp
 	$(CPP) -c MainWindow.cpp -o MainWindow.o $(CXXFLAGS)
+
+ui.o: ui.cpp
+	$(CPP) -c ui.cpp -o ui.o $(CXXFLAGS)
+
+JobQueue.o: JobQueue.cpp
+	$(CPP) -c JobQueue.cpp -o JobQueue.o $(CXXFLAGS)
+
+Mutex.o: Mutex.cpp
+	$(CPP) -c Mutex.cpp -o Mutex.o $(CXXFLAGS)
+
+Semaphore.o: Semaphore.cpp
+	$(CPP) -c Semaphore.cpp -o Semaphore.o $(CXXFLAGS)
+
+Thread.o: Thread.cpp
+	$(CPP) -c Thread.cpp -o Thread.o $(CXXFLAGS)
+
+Configuration.o: Configuration.cpp
+	$(CPP) -c Configuration.cpp -o Configuration.o $(CXXFLAGS)
+
+Event.o: Event.cpp
+	$(CPP) -c Event.cpp -o Event.o $(CXXFLAGS)
+
+../linkedlist.o: ../linkedlist.c
+	$(CC) -c ../linkedlist.c -o ../linkedlist.o $(CFLAGS)
+
+../main.o: ../main.c
+	$(CC) -c ../main.c -o ../main.o $(CFLAGS)
+
+../md4.o: ../md4.c
+	$(CC) -c ../md4.c -o ../md4.o $(CFLAGS)
+
+../options.o: ../options.c
+	$(CC) -c ../options.c -o ../options.o $(CFLAGS)
+
+../processfile.o: ../processfile.c
+	$(CC) -c ../processfile.c -o ../processfile.o $(CFLAGS)
+
+gui.o: gui.cpp
+	$(CPP) -c gui.cpp -o gui.o $(CXXFLAGS)
+
+About.o: About.cpp
+	$(CPP) -c About.cpp -o About.o $(CXXFLAGS)

@@ -10,23 +10,6 @@ CFLAGS=-O2 -march=i486
 CPPFLAGS=-D__WIN32
 OBJS=linkedlist.o main.o md4.o processfile.o
 
-ifdef _GUI
-
-# Windows GUI
-
-TARGET=ed2k_hash-gui.exe
-CPPFLAGS+=-D_GUI
-
-$(TARGET): $(OBJS) libGUI
-	$(CC) -o $(TARGET) $(OBJS) win32\\*.o -lcomctl32 -mwindows
-
-libGUI:
-	cd win32 && make -f Makefile.mingw32
-
-else
-
-# command-line
-
 TARGET=ed2k_hash.exe
 
 OBJS+=cl_ui.o options.o
@@ -34,4 +17,3 @@ OBJS+=cl_ui.o options.o
 $(TARGET): $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS)
 
-endif

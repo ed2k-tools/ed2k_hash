@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CtxMenu - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP5F.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I ".." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /D "__WIN32__" /Fp"Release/CtxMenu.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"X:\PRG\ED2K_HASH\ED2K_HASH\GUI\SHELLEXT\FileProcess.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP5F.tmp" 
+Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP60.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:no /pdb:"Release/ed2khashctx.pdb" /machine:I386 /def:".\CtxMenu.def" /out:"Release/ed2khashctx.dll" /implib:"Release/ed2khashctx.lib" 
+.\Release\CtxMenu.obj
+.\Release\FileProcess.obj
+.\Release\ShellCtxMenu.obj
+.\Release\ShellExt.obj
+.\Release\ShellExtReg.obj
+.\Release\ShUtils.obj
+.\Release\StdAfx.obj
+.\Release\CtxMenu.res
+]
+Creating command line "link.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP60.tmp"
+<h3>Output Window</h3>
+Compiling...
+FileProcess.cpp
+Linking...
+   Creating library Release/ed2khashctx.lib and object Release/ed2khashctx.exp
+ed2khashctx.exp : warning LNK4070: /OUT:CtxMenu.dll directive in .EXP differs from output filename "Release/ed2khashctx.dll"; ignoring directive
+
+
+
+<h3>Results</h3>
+ed2khashctx.dll - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

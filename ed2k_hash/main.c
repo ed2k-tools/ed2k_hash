@@ -67,7 +67,7 @@ static int		read_directory (char *fn, SList **p_list);
  */
 
 int
-#if defined(__WIN32) && defined(_GUI)
+#if defined(_GUI)
 /* 12/01/2003 JL: this causes problem with the GUI... */
 main_entry_point(int argc, char *argv[])
 #else
@@ -110,7 +110,7 @@ main (int argc, char *argv[])
 			{
 				if (node->data)
 					free(node->data);
-				node = node->next;
+				node = (SList*)node->next;
 			}
 
 		}
