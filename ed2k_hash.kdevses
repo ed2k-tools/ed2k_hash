@@ -3,4 +3,8 @@
 <KDevPrjSession>
 <LastCompileConfig>(Default)</LastCompileConfig>
  <Mainframe MaximizeMode="1" />
- <DocsAndViews NumberOfDocuments="0" /></KDevPrjSession>
+ <DocsAndViews NumberOfDocuments="2" >
+<Doc0 CursorPosLine="0" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="0" FileName="/home/tim/projects/ed2k-tools/ed2k_hash/config.h" >
+<View0 Top="25" Width="400" Attach="1" Height="300" Left="3" Focus="0" Type="KWriteView" MinMaxMode="0" />  </Doc0>
+  <Doc1 CursorPosLine="0" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="0" FileName="/home/tim/projects/ed2k-tools/ed2k_hash/ed2k_hash/docs/en/index.sgml" >
+<View0 Top="23" Width="764" Attach="1" Height="612" Left="23" Focus="1" Type="KWriteView" MinMaxMode="2" />  </Doc1> </DocsAndViews></KDevPrjSession>

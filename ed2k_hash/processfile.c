@@ -36,6 +36,11 @@
 #  endif
 #endif
 
+#ifdef WIN32
+#include <malloc.h>
+#define alloca _alloca
+#endif
+
 #include "md4.h"
 #include "options.h"
 #include "processfile.h"
