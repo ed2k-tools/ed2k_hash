@@ -172,6 +172,7 @@ ui_run (SList *filelist)
 				that via some global variabel or something here in order to
 				distinguish those two events for a GUI
 			*/
+			memset (&info, 0x00, sizeof(info));
 			if (process_file ((char*)node->data, &info))
 			{
 				if (!option_htmllink)
@@ -188,6 +189,7 @@ ui_run (SList *filelist)
 								(option_htmlfull) ? info.filepath : info.basename);
 				}
 			} else ui_printerr ("while processing file '%s'\n", (char*)node->data);
+			process_file_free_info_structure_content(&info);
 		}
 		node = node->next;
 	}

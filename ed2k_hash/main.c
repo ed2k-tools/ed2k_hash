@@ -40,6 +40,10 @@
 # include <dirent.h>
 #endif
 
+#ifdef __WIN32
+# include <windows.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -76,6 +80,8 @@ main (int argc, char *argv[])
 		if (argfiles)
 		{
 			SList *files = NULL;
+			SList *node = NULL;
+
 			while (argfiles<argc)
 			{
 				if ((argv[argfiles]))
@@ -92,6 +98,15 @@ main (int argc, char *argv[])
 
 			if (ui_run (files))
 				exit_value = EXIT_SUCCESS;
+
+			/* free list with filenames */
+			node = files;
+			while (node)
+			{
+				if (node->data)
+					free(node->data);
+				node = node->next;
+			}
 
 		}
 	}
@@ -178,7 +193,29 @@ is_directory (char *fn)
 
 	return -1;
 }
-	
+
+#elif defined(__WIN32)
+
+static int
+is_directory (char *fn)
+{
+    WIN32_FIND_DATA data;
+    HANDLE hFile = FindFirstFile(fn, &data);
+    if (hFile != INVALID_HANDLE_VALUE)
+    {
+       int ret = 0;
+       if (data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+       {
+          ret = 1;
+       }
+
+       CloseHandle(hFile);
+       return ret;
+    }
+
+    return -1;
+}
+
 #else
 
 static int
@@ -238,6 +275,7 @@ read_directory (char *fn, SList **p_list)
 				} else {
 					if ((isdir==1) && (option_recursive))
 						expand_if_directory (pathfn, p_list);
+					free(pathfn);	/* don't need to save this in the file list => free it */
 				}
 			}
 		}
@@ -245,6 +283,59 @@ read_directory (char *fn, SList **p_list)
 	closedir(d);
 
 	return 1;
+}
+
+#elif defined(__WIN32)
+
+static int
+read_directory (char *fn, SList **p_list)
+{
+    char *pat = (char*)malloc(strlen(fn) + 5);
+    strcpy(pat, fn, pat);
+    int fullpathlen = strlen(pat);
+
+    if (pat[strlen(pat) - 1] != '\\')
+    {
+       strcat(pat, "\\");
+       ++fullpathlen;
+    }
+    strcat(pat, "*.*");
+
+    WIN32_FIND_DATA data;
+    HANDLE hFile = FindFirstFile(pat, &data);
+    if (hFile != INVALID_HANDLE_VALUE)
+    {
+       do
+       {
+          if ((data.cFileName[0] != '.'))  /* don't even know if it's meaningful under Windows :) */
+          {
+             char *fullname = (char*)malloc(fulpathlen + strlen(data.cFileName) + 1);
+             sprintf(fullname, "%.*s%s", fullpathlen, pat, data.cFileName);
+
+             /* could use is_directory, but it's more efficient this way */
+             if ((data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0)
+             {
+                *p_list = slist_append (*p_list, (void*)fullname);
+             }
+             else
+             {
+                if (option_recursive)
+                {
+                   expand_if_directory(fullname, p_list);
+                }
+
+                free(fullname); /* don't need to save directory name in file list => free it */
+             }
+          }
+       }
+       while (FindNextFile(hFile, &data));
+       CloseHandle(hFile);
+    }
+
+    free(pat);
+
+    /* no error case, as far as I know */
+    return 1;
 }
 
 #else

@@ -46,6 +46,7 @@ typedef struct _fileinfo fileinfo;
 
 
 int		process_file (const char *fn, fileinfo *info);
+void	process_file_free_info_structure_content(fileinfo *info);
 
 
 #endif /* ifndef _ed2k_hash_processfile_h_included_ */

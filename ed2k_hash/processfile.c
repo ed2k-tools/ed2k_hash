@@ -17,6 +17,7 @@
 
 #include "global.h"
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
@@ -121,8 +122,7 @@ process_file (const char *fn, fileinfo *info)
 
 	for (b=0; b < fi.blocks; b++)
 	{
-		MD4_CTX			 context;
-		unsigned char	 hash[16];
+		MD4_CTX		 context;
 		int				 len, start;
 		void			*map;
 
@@ -236,7 +236,7 @@ process_file (const char *fn, fileinfo *info)
 	{
 		if (!process_one_block (&fi, b))
 			return 0;
-	}	
+	}
 
 	/* if only one block: partial hash == final hash */
 	if (fi.blocks>1)
@@ -261,6 +261,7 @@ process_file (const char *fn, fileinfo *info)
 
 	return 1;
 }
+
 
 
 /* process_one_block
@@ -346,6 +347,33 @@ process_one_block (fileinfo *fi, unsigned int b)
 
 
 #endif /* ifdef ED2K_HASH_USE_MMAP ... else ...*/
+
+/* process_file_free_info_structure_content
+ *
+ * frees the fields of the fileinfo structure,
+ * but NOT the structure itself,
+ * and NOT the info->user_data field
+ *  (which must be freed by the UI if it was used)
+ *
+ */
+
+void
+process_file_free_info_structure_content (fileinfo *info)
+{
+	if (!info)
+		return;
+
+	if (info->filepath)
+		free(info->filepath);
+	if (info->basename)
+		free(info->basename);
+	if (info->parthashes)
+		free(info->parthashes);
+	if (info->ed2k_hash)
+		free(info->ed2k_hash);
+	if (info->ed2k_hash_str)
+		free(info->ed2k_hash_str);
+}
 
 
 
