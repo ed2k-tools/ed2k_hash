@@ -295,10 +295,39 @@ static void add_to_queue(const char* fn)
 
 void add_file(const char *name)
 {
+    /* If the filename comes from the shell, it's in the old 8.3
+     * format... */
+
+    char *rname = NULL;
+    WIN32_FIND_DATA d;
+    HANDLE h = FindFirstFile(name, &d);
+    if (h != INVALID_HANDLE_VALUE)
+    {
+       int k = strlen(name) - 1;
+       while ((k>0) && (name[k] != '\\')) --k;
+       if (k < 0)
+       {
+          rname = strdup(d.cFileName);
+       }
+       else
+       {
+          rname = (char*)malloc(k + 1 + strlen(d.cFileName) + 1);
+          memcpy(rname, name, k + 1);
+          strcpy(rname + k + 1, d.cFileName);
+       }
+
+       FindClose(h);
+    }
+    else
+    {
+       /* Should not happen... */
+       rname = strdup(name);
+    }
+
     ui_init();
 
     WaitForSingleObject(hMutex, INFINITE);
-    add_to_queue(name);
+    add_to_queue(rname);
 
     if (!hThread)
     {
@@ -306,6 +335,8 @@ void add_file(const char *name)
     }
 
     ReleaseMutex(hMutex);
+
+    free(rname);
 }
 
 /*
