@@ -29,6 +29,46 @@
 #endif /* (!defined(__MAC_OS_X__)) */
 
 
+/* include extra WIN32 stuff if required
+ *
+ * NOTE: ALL WIN32 STUFF IS NOT TESTED, I JUST WROTE IT HERE AS I THINK MIGHT BE RIGHT
+ *
+ */
+
+
+#ifdef __WIN32__	/* detect Borland c++ Definition and add MS Visual c++ one (???) */
+#ifndef WIN32
+#define WIN32
+#endif
+#endif
+
+#ifdef WIN32
+
+// #  define STRICT                        /* XXX - Strict typing, please (do we want this?) */
+#  include <windows.h>
+#  include <direct.h>
+#  include <errno.h>
+#  include <ctype.h>
+#  ifdef _MSC_VER
+#    include <io.h>
+#  endif /* _MSC_VER */
+
+#ifndef alloca
+#include <stdlib.h>
+#include <malloc.h>
+#define alloca _alloca
+#endif
+
+#ifndef strdup
+#include <string.h>
+#define strdup _strdup
+#endif
+
+
+#endif /* ifdef WIN32 */
+
+
+
 #endif
 
 

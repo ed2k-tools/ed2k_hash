@@ -40,15 +40,12 @@
 # include <dirent.h>
 #endif
 
-#ifdef WIN32
-#include <malloc.h>
-#define alloca _alloca
-#endif
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
+
+#include "global.h"
 
 #include "linkedlist.h"
 #include "options.h"

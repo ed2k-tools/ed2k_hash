@@ -18,10 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef WIN32
-#include <malloc.h>
-#define alloca _alloca
-#endif
+#include "global.h"
 
 #include "linkedlist.h"
 

@@ -19,10 +19,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#ifdef WIN32
-#include <malloc.h>
-#define alloca _alloca
-#endif
+#include "global.h"
 
 #include "cl_ui.h"
 #include "options.h"
