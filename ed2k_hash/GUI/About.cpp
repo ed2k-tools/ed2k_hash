@@ -26,7 +26,7 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id$
+// $Id: About.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
 
 #include "About.h"
 
@@ -34,7 +34,7 @@
 #include "config.h"
 #else
 // Windows...
-#define VERSION "0.3.4"
+#define VERSION "0.4.0"
 #endif
 
 About::About()
@@ -86,4 +86,4 @@ void About::_ok_cb(Fl_Widget *w, void *p)
     ((About*)p)->ok_cb(w);
 }
 
-static const char* _rcsid_About __attribute__((unused)) = "$Id$";
+static const char* _rcsid_About __attribute__((unused)) = "$Id: About.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $";

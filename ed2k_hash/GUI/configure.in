@@ -1,6 +1,6 @@
 AC_INIT(gui.cpp)
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(ed2k_hash_gui, 0.3.4)
+AM_INIT_AUTOMAKE(ed2k_hash_gui, 0.4.0)
 
 AC_PROG_CXX
 AC_PROG_CC
