@@ -1,1 +1,9 @@
+Original Author:
+----------------
 Tim-Philipp Müller <t.i.m@orange.net>
+
+Contributors:
+-------------
+Jerome Laheurte <jerome@fraca7.homeunix.net>
+ - implemented directory stuff for WIN32 platform
+
