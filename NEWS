@@ -1,4 +1,23 @@
 
+ 09-January-2004: Finally, GUI version for Linux/*nix
+
+                  I have finally found the time to integrate
+                  the FLTK toolkit GUI version by Jerome L. into
+                  the autofoo build system. I am sorry I did not
+                  get around to it earlier (admittedly I had even
+                  forgotten about it). But here it is now.
+
+                  If you want a GUI version in addition to the
+                  command line version on Linux/*nix, you will
+                  need to do 'apt-get install libfltk1.1-dev' on
+                  debian, or install the fltk1.1 and fltk1.1-devel
+                  packages of your distro (name might vary).
+
+                  Enjoy! 
+
+
+-------
+
 This is a complete rewrite of the GUI. It now works under Linux, the
 Win32 Shell Extensions are greatly improved, and the code is *much*
 better :)
