@@ -191,8 +191,8 @@ process_file (const char *fn, fileinfo *info)
 
 	close(fd);
 
-	/* if only one block: partial hash == final hash */
-	if (fi.blocks>1)
+	/* LESS THAN one block: partial hash == final hash */
+	if (fi.blocks >= 1)
 	{
 		MD4_CTX	context;
 		MD4_Init (&context);
