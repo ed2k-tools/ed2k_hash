@@ -80,6 +80,15 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
 			opt.htmllink = 1;
 			opt.recursive = 1;
 			break;
+		case 4:
+			opt.htmllink = 1;
+			opt.htmlfull = 1;
+			break;
+		case 5:
+			opt.htmllink = 1;
+			opt.htmlfull = 1;
+			opt.recursive = 1;
+			break;
 		}	// switch on command
             // get a CWnd for Explorer
 				CWnd *pParentWnd = NULL;
@@ -305,6 +314,12 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 			case 3:
             strncpy(pszName, "Produce ed2k HTML links, recursively", cchMax);
 				break;
+			case 4:
+				strncpy(pszName, "Produce full ed2k HTML links", cchMax);
+				break;
+			case 5:
+				strncpy(pszName, "Produce full ed2k HTML links, recursively", cchMax);
+				break;
          default:
             strncpy(pszName, SHELLEXNAME, cchMax);
 				break;
@@ -328,6 +343,12 @@ STDMETHODIMP CShellExt::GetCommandString(UINT idCmd,
 				break;
 			case 3:
             strncpy(pszName, "HTML hash recursively", cchMax);
+				break;
+			case 4:
+            strncpy(pszName, "Full HTML hash", cchMax);
+				break;
+			case 5:
+            strncpy(pszName, "Full HTML hash recursively", cchMax);
 				break;
          default:
             strncpy(pszName, SHELLEXNAME, cchMax);

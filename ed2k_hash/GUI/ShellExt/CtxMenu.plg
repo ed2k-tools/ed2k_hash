@@ -6,13 +6,24 @@
 --------------------Configuration: CtxMenu - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP5F.tmp" with contents
+Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPB.tmp" with contents
 [
 /nologo /MD /W3 /GX /O2 /I ".." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /D "__WIN32__" /Fp"Release/CtxMenu.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
-"X:\PRG\ED2K_HASH\ED2K_HASH\GUI\SHELLEXT\FileProcess.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\CtxMenu.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\FileProcess.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\ShellCtxMenu.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\ShellExt.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\ShellExtReg.cpp"
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\ShUtils.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP5F.tmp" 
-Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP60.tmp" with contents
+Creating command line "cl.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPB.tmp" 
+Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPC.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I ".." /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_USRDLL" /D "__WIN32__" /Fp"Release/CtxMenu.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Developpement\ed2k_hash\ed2k_hash\GUI\ShellExt\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPC.tmp" 
+Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPD.tmp" with contents
 [
 /nologo /subsystem:windows /dll /incremental:no /pdb:"Release/ed2khashctx.pdb" /machine:I386 /def:".\CtxMenu.def" /out:"Release/ed2khashctx.dll" /implib:"Release/ed2khashctx.lib" 
 .\Release\CtxMenu.obj
@@ -24,10 +35,18 @@ Creating temporary file "C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP60.tmp" with conten
 .\Release\StdAfx.obj
 .\Release\CtxMenu.res
 ]
-Creating command line "link.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSP60.tmp"
+Creating command line "link.exe @C:\DOCUME~1\jerome\LOCALS~1\Temp\RSPD.tmp"
 <h3>Output Window</h3>
 Compiling...
+StdAfx.cpp
+Compiling...
+CtxMenu.cpp
 FileProcess.cpp
+ShellCtxMenu.cpp
+ShellExt.cpp
+ShellExtReg.cpp
+ShUtils.cpp
+Generating Code...
 Linking...
    Creating library Release/ed2khashctx.lib and object Release/ed2khashctx.exp
 ed2khashctx.exp : warning LNK4070: /OUT:CtxMenu.dll directive in .EXP differs from output filename "Release/ed2khashctx.dll"; ignoring directive
