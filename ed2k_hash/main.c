@@ -67,7 +67,12 @@ static int		read_directory (char *fn, SList **p_list);
  */
 
 int
+#if defined(__WIN32) && defined(_GUI)
+/* 12/01/2003 JL: this causes problem with the GUI... */
+main_entry_point(int argc, char *argv[])
+#else
 main (int argc, char *argv[])
+#endif
 {
 	int		 exit_value = EXIT_FAILURE;
 
