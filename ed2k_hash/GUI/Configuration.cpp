@@ -26,7 +26,7 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: Configuration.cpp,v 1.2 2003/06/15 14:54:08 fraca7 Exp $
+// $Id: Configuration.cpp,v 1.3 2004/01/09 21:12:11 uberdork Exp $
 
 #include "Configuration.h"
 
@@ -44,6 +44,10 @@
 #include <stdlib.h>
 
 #include <iostream>
+
+#ifdef __WIN32__
+#include <windows.h>
+#endif
 
 using namespace std;
 
@@ -271,4 +275,4 @@ void save_config()
 #endif
 }
 
-static const char* _rcsid_Config __attribute__((unused)) = "$Id: Configuration.cpp,v 1.2 2003/06/15 14:54:08 fraca7 Exp $";
+static const char* _rcsid_Config __attribute__((unused)) = "$Id: Configuration.cpp,v 1.3 2004/01/09 21:12:11 uberdork Exp $";

@@ -26,16 +26,10 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: About.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
+// $Id: About.cpp,v 1.2 2003/06/28 07:30:33 fraca7 Exp $
 
 #include "About.h"
-
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#else
-// Windows...
-#define VERSION "0.4.0"
-#endif
+#include "options.h"
 
 About::About()
     : Fl_Window(50, 50, 500, 350)
@@ -86,4 +80,4 @@ void About::_ok_cb(Fl_Widget *w, void *p)
     ((About*)p)->ok_cb(w);
 }
 
-static const char* _rcsid_About __attribute__((unused)) = "$Id: About.cpp,v 1.1 2003/05/25 11:55:33 fraca7 Exp $";
+static const char* _rcsid_About __attribute__((unused)) = "$Id: About.cpp,v 1.2 2003/06/28 07:30:33 fraca7 Exp $";

@@ -1,3 +1,15 @@
+2004-08-30  fraca7  <fraca7@free.fr>
+
+	* ed2k_hash/main.c (is_directory): Particularly ugly hack to
+	recognize 'C:\' and stuff as a directory...
+
+	* ed2k_hash/GUI/MainWindow.cpp (add_dir_cb): Hack to work around
+	drives and directories mix
+
+	* ed2k_hash/processfile.c: Windows-friendly version of
+	get_file_size (under Windows, it seems that ftell returns a signed
+	integer, so is limited to 2Gb files).
+
 2003-06-28 08:30  fraca7
 
 	* ed2k_hash/GUI/: About.cpp, configure.in: updated version number

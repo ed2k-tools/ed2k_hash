@@ -53,9 +53,9 @@
 #    include <io.h>
 #  endif /* _MSC_VER */
 
-#ifndef alloca
 #include <stdlib.h>
 #include <malloc.h>
+#ifndef alloca
 #define alloca _alloca
 #endif
 

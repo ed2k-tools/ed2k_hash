@@ -204,7 +204,21 @@ void MainWindow::add_dir_cb(Fl_Widget *w)
        st.htmlfull = cf_htmlfull;
        st.recursive = cf_recursive;
 
-       _queue->addJob(fc->value(), &st);
+       // fraca7  30/08/2004:  Windows   considers  that  'C:\'  is  a
+       // directory, but not 'C:'... Go figure...
+
+       if ((strlen(fc->value()) == 2) && (fc->value()[1] == ':'))
+       {
+          char name[4];
+          strcpy(name, fc->value());
+          name[2] = '\\';
+          name[3] = 0;
+          _queue->addJob(name, &st);
+       }
+       else
+       {
+          _queue->addJob(fc->value(), &st);
+       }
     }
     delete fc;
 }

@@ -432,6 +432,40 @@ process_file_free_info_structure_content (fileinfo *info)
  *
  */
 
+#ifdef __WIN32__
+
+static unsigned int get_file_size(const char *fn)
+{
+    HANDLE hFile;
+    DWORD hi, lo;
+
+    hFile = CreateFile(fn,
+                       MAXIMUM_ALLOWED,
+                       0,
+                       NULL,
+                       OPEN_EXISTING,
+                       0,
+                       NULL);
+    if (hFile == INVALID_HANDLE_VALUE)
+    {
+       ui_printerr("CreateFile failed(%s): %ld", fn, GetLastError());
+       return (unsigned int)-1;
+    }
+
+    lo = GetFileSize(hFile, &hi);
+    CloseHandle(hFile);
+
+    if (hi != 0)
+    {
+       ui_printerr ("the file %s is too big. The donkey can only deal with files smaller than 4GB!\n\n", fn);
+       return (unsigned int)-1;
+    }
+
+    return (unsigned int)lo;
+}
+
+#else
+
 static unsigned int
 get_file_size (const char *fn)
 {
@@ -466,7 +500,7 @@ get_file_size (const char *fn)
 	return (unsigned int)fsize;
 }
 
-
+#endif
 
 
 

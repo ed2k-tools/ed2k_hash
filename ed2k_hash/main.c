@@ -205,7 +205,14 @@ static int
 is_directory (char *fn)
 {
     WIN32_FIND_DATA data;
-    HANDLE hFile = FindFirstFile(fn, &data);
+    HANDLE hFile;
+
+    /* Ugly  hack, but  FindFirstFile returns  INVALID_HANDLE_VALUE on
+     * C:\... */
+    if ((strlen(fn) == 3) && (fn[1] == ':') && (fn[2] == '\\'))
+       return 1;
+
+    hFile = FindFirstFile(fn, &data);
     if (hFile != INVALID_HANDLE_VALUE)
     {
        int ret = 0;
@@ -214,7 +221,7 @@ is_directory (char *fn)
           ret = 1;
        }
 
-       CloseHandle(hFile);
+       FindClose(hFile);
        return ret;
     }
 
