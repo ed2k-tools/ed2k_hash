@@ -156,6 +156,8 @@ STDMETHODIMP CreateShellExtMenu(HMENU hMenu,
          InsertMenu(hParentMenu, indexMenu++, MF_STRING|MF_BYPOSITION, idCmd++, "HTML hash");
          InsertMenu(hParentMenu, indexMenu++, MF_STRING|MF_BYPOSITION, idCmd++, "Recursive hash");
          InsertMenu(hParentMenu, indexMenu++, MF_STRING|MF_BYPOSITION, idCmd++, "Recursive HTML hash");
+         InsertMenu(hParentMenu, indexMenu++, MF_STRING|MF_BYPOSITION, idCmd++, "Full HTML hash");
+         InsertMenu(hParentMenu, indexMenu++, MF_STRING|MF_BYPOSITION, idCmd++, "Recursive full HTML hash");
       }
                        
       return ResultFromShort(idCmd-idCmdFirst); //Must return number of menu
