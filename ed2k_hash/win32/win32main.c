@@ -32,6 +32,7 @@
 HINSTANCE hInst;
 HWND hMainWindow;
 HWND hStatusBar;
+HWND hProgressBar;
 HWND hFileList;
 
 /* Locals */
@@ -43,6 +44,8 @@ static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 static LRESULT CALLBACK About  (HWND, UINT, WPARAM, LPARAM);
 
 static HANDLE hMutex;
+
+#define SCROLLSIZE 100
 
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hOld,
@@ -141,6 +144,24 @@ int APIENTRY WinMain(HINSTANCE hInstance,
                                     PACKAGE " ready...",
                                     hMainWindow,
                                     -1);
+
+    {
+       int a[2];
+       a[0] = 200;
+       a[1] = -1;
+       SendMessage(hStatusBar, SB_SETPARTS, 2, (LPARAM)&a);
+    }
+
+    hProgressBar = CreateWindowEx(0,
+                                  PROGRESS_CLASS,
+                                  NULL,
+                                  WS_CHILD | WS_VISIBLE | PBS_SMOOTH,
+                                  0, 0,
+                                  100, 10,
+                                  hStatusBar,
+                                  NULL,
+                                  hInst,
+                                  NULL);
 
     /* Initialisation of the listview */
 
@@ -475,7 +496,15 @@ LRESULT CALLBACK WndProc(HWND hWnd,
                      r.bottom - r.top - 6 - 23,
                      TRUE);
 
-          PostMessage(hStatusBar, WM_SIZE, 0, 0);
+          SendMessage(hStatusBar, WM_SIZE, 0, 0);
+
+          int a[2];
+          a[1] = -1;
+          a[0] = r.right - r.left - SCROLLSIZE;
+          SendMessage(hStatusBar, SB_SETPARTS, 2, (LPARAM)&a);
+
+          SendMessage(hStatusBar, SB_GETRECT, 1, (LPARAM)&r);
+          MoveWindow(hProgressBar, r.left, r.top, r.right-r.left, r.bottom-r.top, TRUE);
        }
        break;
 

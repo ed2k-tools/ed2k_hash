@@ -38,6 +38,15 @@ static HANDLE hThread = NULL;
 
 static HANDLE hMutex = NULL;
 
+extern HWND hStatusBar; /* in win32main.c */
+extern HWND hProgressBar; /* in win32main.c */
+
+static void reinit_status(void)
+{
+    PostMessage(hStatusBar, SB_SETTEXT, 0, (LPARAM)(PACKAGE " ready..."));
+    PostMessage(hProgressBar, PBM_SETPOS, 0, 0);
+}
+
 /* The queue is filled by the main thread and consumed
    by the hashing thread. The latter stops when the queue is
    empty.
@@ -263,6 +272,17 @@ ui_run (SList *filelist)
 int
 ui_update (char *filepath, unsigned int size, unsigned int done)
 {
+    /* The reason why the buffer is static is to allow PostMessage
+     * instead of SendMessage (to avoid speeding down the process) */
+
+    static char msg[128];
+
+    snprintf(msg, 128, "%s %.2f%%", filepath, 100.0 * done / size);
+    msg[127] = 0;
+
+    PostMessage(hStatusBar, SB_SETTEXT, 0, (LPARAM)msg);
+    PostMessage(hProgressBar, PBM_SETPOS, (WPARAM)(100.0 * done / size), 0);
+
     return !cancelled;
 }
 
@@ -414,6 +434,8 @@ LPVOID ThreadProc(LPVOID *foo)
                       WM_USER_THREAD_TERMINATED,
                       0,
                       0);
+
+          reinit_status();
           break;
        }
 

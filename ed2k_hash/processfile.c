@@ -324,9 +324,13 @@ process_one_block (fileinfo *fi, unsigned int b)
 
 		left -= readnow;
 
+                /* JL 30/03/2003: this isn't great with progress bars :) */
+                /*
 		if (!ui_update (fi->filepath, fi->size, fi->size-left))
 			return 0;
-
+                */
+                if (!ui_update (fi->filepath, fi->size, blocksize - left + b * BLOCKSIZE) )
+                        return 0;
 	}
 
 	MD4_Final (hash, &context);
