@@ -98,9 +98,15 @@ install_location=
 type=DATA
 
 [ed2k_hash/Makefile.am]
-files=ed2k_hash/main.c,ed2k_hash/cl_ui.h,ed2k_hash/cl_ui.c,ed2k_hash/options.h,ed2k_hash/options.c,ed2k_hash/linkedlist.h,ed2k_hash/linkedlist.c,ed2k_hash/ui.h,ed2k_hash/processfile.h,ed2k_hash/processfile.c,ed2k_hash/md4.h,ed2k_hash/md4.c,ed2k_hash/global.h
+files=ed2k_hash/main.c,ed2k_hash/cl_ui.h,ed2k_hash/cl_ui.c,ed2k_hash/options.h,ed2k_hash/options.c,ed2k_hash/linkedlist.h,ed2k_hash/linkedlist.c,ed2k_hash/ui.h,ed2k_hash/processfile.h,ed2k_hash/processfile.c,ed2k_hash/md4.h,ed2k_hash/md4.c,ed2k_hash/global.h,ed2k_hash/Makefile.mingw32
 sub_dirs=docs
 type=prog_main
+
+[ed2k_hash/Makefile.mingw32]
+dist=true
+install=false
+install_location=
+type=DATA
 
 [ed2k_hash/cl_ui.c]
 dist=true

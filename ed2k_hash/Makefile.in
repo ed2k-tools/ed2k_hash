@@ -233,7 +233,7 @@ ed2k_hash_LDADD =
 
 SUBDIRS = docs 
 
-EXTRA_DIST = main.c cl_ui.h cl_ui.c options.h options.c linkedlist.h linkedlist.c ui.h processfile.h processfile.c md4.h md4.c global.h 
+EXTRA_DIST = main.c cl_ui.h cl_ui.c options.h options.c linkedlist.h linkedlist.c ui.h processfile.h processfile.c md4.h md4.c global.h Makefile.mingw32 
 
 ####### kdevelop will overwrite this part!!! (end)############
 # set the include path found by configure
@@ -470,7 +470,12 @@ GTAGS:
 distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH
 
-DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+#>- DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+#>+ 4
+KDE_DIST=ed2k_hash 
+
+DISTFILES= $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST) $(KDE_DIST)
+
 
 top_distdir = ..
 distdir = $(top_distdir)/$(PACKAGE)-$(VERSION)

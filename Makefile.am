@@ -1,6 +1,6 @@
 ####### kdevelop will overwrite this part!!! (begin)##########
 
-SUBDIRS = ed2k_hash 
+SUBDIRS = ed2k_hash
 
 EXTRA_DIST = ed2k_hash.kdevprj admin AUTHORS COPYING ChangeLog INSTALL README TODO ed2k_hash.lsm 
 
