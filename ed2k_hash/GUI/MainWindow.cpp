@@ -217,13 +217,15 @@ void MainWindow::copy_cb(Fl_Widget *w)
           int lg = 0;
           while (bf[lg] && (bf[lg] != '\t')) ++lg;
 
-          while (lg + l > lb * 512)
+          while (lg + l + 1 > lb * 512)
           {
              lb++;
              data = (char*)realloc(data, lb * 512);
           }
           memcpy(data + l, bf, lg);
           l += lg;
+          data[l] = '\n';
+          ++l;
        }
     }
 
