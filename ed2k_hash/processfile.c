@@ -123,7 +123,13 @@ process_file (const char *fn, fileinfo *info)
 		return 0;
 	}
 
+#if defined(_SC_PAGESIZE)
+	pagesize = sysconf(_SC_PAGESIZE);
+#elif defined(_SC_PAGE_SIZE)
 	pagesize = sysconf(_SC_PAGE_SIZE);
+#else /* last resort for BSD */
+	pagesize = getpagesize();
+#endif
 
 	for (b=0; b < fi.blocks; b++)
 	{
