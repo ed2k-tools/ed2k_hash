@@ -62,6 +62,7 @@ dnl ===========================
 
 AC_OUTPUT([
 ./Makefile
+debian/Makefile
 ed2k_hash/Makefile
 ed2k_hash/docs/Makefile
 ed2k_hash/docs/en/Makefile

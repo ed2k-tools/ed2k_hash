@@ -1,3 +1,10 @@
+ed2k-hash (0.4.0-1) unstable; urgency=low
+
+  * includes FLTK-based GUI now
+  * several minor bug fixes (e.g. for files that are exactly 9728000 bytes)
+
+ -- Tim-Philipp Mueller <t.i.m@orange.net>  Fri, 09 Jan 2004 21:15:00 +0000
+
 ed2k-hash (0.3.3-1) unstable; urgency=low
 
   * several memory leaks fixed

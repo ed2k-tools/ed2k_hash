@@ -1,4 +1,4 @@
-SUBDIRS = ed2k_hash
+SUBDIRS = ed2k_hash debian
 
 EXTRA_DIST = AUTHORS COPYING ChangeLog INSTALL README TODO 
 
