@@ -17,9 +17,13 @@ install_location=
 type=DATA
 
 [Config for BinMakefileAm]
+addcxxflags=
 bin_program=ed2k_hash
-cxxflags=-O0 -g3 -Wall
-ldflags=\s
+cflags=
+cppflags=
+cxxflags=\s-O0 -g3 -Wall
+ldadd=
+ldflags=\s\s
 
 [General]
 AMChanged=false
@@ -28,14 +32,16 @@ configure_args=
 email=t.i.m@orange.net
 kdevprj_version=1.3
 lfv_open_groups=
-make_options=-j1
-makefiles=Makefile.am,ed2k_hash/Makefile.am,ed2k_hash/docs/Makefile.am,ed2k_hash/docs/en/Makefile.am
+make_options=\s-j1 -W/home/tim/projects/ed2k_gui/ed2k_gui/makefile
+makefiles=Makefile.am,ed2k_hash/Makefile.am,ed2k_hash/docs/Makefile.am,ed2k_hash/docs/en/Makefile.am,debian/Makefile.am
+modifyMakefiles=true
 project_name=Ed2k_hash
 project_type=normal_c
 sgml_file=/home/tim/projects/ed2k_hash/ed2k_hash/docs/en/index.sgml
+short_info=
 sub_dir=ed2k_hash/
-version=0.3
-version_control=None
+version=0.3.1
+version_control=CVS
 workspace=1
 
 [INSTALL]
@@ -53,7 +59,7 @@ groups=Headers,Sources,GNU,Others
 
 [Makefile.am]
 files=ed2k_hash.kdevprj,admin,AUTHORS,COPYING,ChangeLog,INSTALL,README,TODO,ed2k_hash.lsm
-sub_dirs=ed2k_hash
+sub_dirs=ed2k_hash,debian
 type=normal
 
 [README]
@@ -74,6 +80,11 @@ install=false
 install_location=
 type=DATA
 
+[debian/Makefile.am]
+files=
+sub_dirs=
+type=normal
+
 [ed2k_hash.kdevprj]
 dist=true
 install=false
@@ -87,7 +98,7 @@ install_location=
 type=DATA
 
 [ed2k_hash/Makefile.am]
-files=ed2k_hash/main.c,ed2k_hash/cl_ui.h,ed2k_hash/cl_ui.c,ed2k_hash/options.h,ed2k_hash/options.c,ed2k_hash/linkedlist.h,ed2k_hash/linkedlist.c,ed2k_hash/ui.h,ed2k_hash/processfile.h,ed2k_hash/processfile.c,ed2k_hash/md4.h,ed2k_hash/md4.c
+files=ed2k_hash/main.c,ed2k_hash/cl_ui.h,ed2k_hash/cl_ui.c,ed2k_hash/options.h,ed2k_hash/options.c,ed2k_hash/linkedlist.h,ed2k_hash/linkedlist.c,ed2k_hash/ui.h,ed2k_hash/processfile.h,ed2k_hash/processfile.c,ed2k_hash/md4.h,ed2k_hash/md4.c,ed2k_hash/global.h
 sub_dirs=docs
 type=prog_main
 
@@ -153,6 +164,12 @@ dist=true
 install=false
 install_location=
 type=DATA
+
+[ed2k_hash/global.h]
+dist=true
+install=false
+install_location=
+type=HEADER
 
 [ed2k_hash/linkedlist.c]
 dist=true

@@ -31,6 +31,8 @@
 # include <config.h>
 #endif
 
+#include "global.h"
+
 #if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
 # include <sys/types.h>
 # include <sys/stat.h>
