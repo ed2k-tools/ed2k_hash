@@ -320,9 +320,10 @@ LRESULT CALLBACK WndProc(HWND hWnd,
                    {
                       char *str = (char*)it.lParam;
                       int l = strlen(str);
-                      while (n + l + 1 > lbf * 1024)
+                      while (n + l + 1 > lbf)
                       {
-                         bf = realloc(bf, lbf += 1024);
+                         bf = realloc(bf, lbf + 1024);
+                         lbf += 1024;
                       }
 
                       memcpy(bf + n, str, l);
