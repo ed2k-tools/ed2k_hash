@@ -6,4 +6,8 @@ Contributors:
 -------------
 Jerome Laheurte <jerome@fraca7.homeunix.net>
  - implemented directory stuff for WIN32 platform
+ - WIN32 GUI 
+
+Magnus <offense@home.se>
+ - Mac OS X GUI 
 
