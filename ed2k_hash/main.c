@@ -33,7 +33,7 @@
 
 #include "global.h"
 
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <unistd.h>
@@ -172,7 +172,7 @@ expand_if_directory (char *fn, SList **p_list)
  *
  */
 
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
 
 static int
 is_directory (char *fn)
@@ -244,7 +244,7 @@ is_directory (char *fn)
  *
  */
 
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
 
 static int
 read_directory (char *fn, SList **p_list)

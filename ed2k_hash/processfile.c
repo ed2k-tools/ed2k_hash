@@ -26,7 +26,7 @@
 
 /* for nmap on unix systems             */
 /* TODO: add other *nix OS defines here */
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
 #  include <unistd.h>
 #  include <sys/mman.h>
 #  include <sys/types.h>
@@ -72,10 +72,11 @@ static int					process_one_block (fileinfo *fi, unsigned int b);
 int
 process_file (const char *fn, fileinfo *info)
 {
-	const char		hexdigits[16] = "0123456789abcdef";
-	unsigned int	b, j;
-	fileinfo		fi;
-	int				fd;
+	const char      hexdigits[16] = "0123456789abcdef";
+	unsigned int    b, j;
+	fileinfo        fi;
+	int             fd;
+	long            pagesize, off_difference;
 
 	if (!fn)
 		return 0;
@@ -120,30 +121,49 @@ process_file (const char *fn, fileinfo *info)
 		return 0;
 	}
 
+	pagesize = sysconf(_SC_PAGE_SIZE);
+
 	for (b=0; b < fi.blocks; b++)
 	{
-		MD4_CTX		 context;
-		int				 len, start;
-		void			*map;
+		MD4_CTX      context;
+		int          len, start;
+		void        *map;
 
 		len =  BLOCKSIZE;
 		if (b == fi.blocks - 1)
 			len = fi.size % BLOCKSIZE;
 
-		if (len==0)	/* this case shouldn't happen */
-			return 0;
+		if (len==0)
+			len = BLOCKSIZE;
 
 		start = b*BLOCKSIZE;
-		map = mmap (NULL, len, PROT_READ, MAP_SHARED, fd, b*BLOCKSIZE);
-		if (map == NULL)
+
+		off_difference = start % pagesize;
+
+		if (off_difference != 0)
+		{
+			start -= off_difference;
+			len   += off_difference;
+		}
+
+		map = mmap (NULL, len, PROT_READ, MAP_SHARED, fd, start);
+
+		if (map == MAP_FAILED)
 		{
 			ui_printerr ("in %s - mmap() failed: %s\n", __FUNCTION__, strerror(errno));
 			return 0;
 		}
+
 		MD4_Init   (&context);
-		MD4_Update (&context, map, len);
+		MD4_Update (&context, map+off_difference, len-off_difference);
 		MD4_Final  (fi.parthashes+(b*16), &context);
-		munmap (map, len);
+
+		if (munmap (map, len) != 0)
+		{
+			ui_printerr ("in %s - munmap() failed: %s\n", __FUNCTION__, strerror(errno));
+			return 0;
+		}
+
 		if ((option_debug)||(option_verbose))
 		{
 			int k;
