@@ -277,8 +277,16 @@ ui_update (char *filepath, unsigned int size, unsigned int done)
 
     static char msg[128];
 
-    snprintf(msg, 128, "%s %.2f%%", filepath, 100.0 * done / size);
-    msg[127] = 0;
+    if (cancelled)
+    {
+       sprintf(msg, "Task cancelled.");
+       done = 0;
+    }
+    else
+    {
+       snprintf(msg, 128, "%s %.2f%%", filepath, 100.0 * done / size);
+       msg[127] = 0;
+    }
 
     PostMessage(hStatusBar, SB_SETTEXT, 0, (LPARAM)msg);
     PostMessage(hProgressBar, PBM_SETPOS, (WPARAM)(100.0 * done / size), 0);
