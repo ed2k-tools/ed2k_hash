@@ -942,7 +942,7 @@ fi
 
 # Define the identity of the package.
 PACKAGE=ed2k_hash
-VERSION=0.3
+VERSION=0.3.1
 cat >> confdefs.h <<EOF
 #define PACKAGE "$PACKAGE"
 EOF

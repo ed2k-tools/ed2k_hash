@@ -1,0 +1,9 @@
+ed2k-hash (0.3.1-1) unstable; urgency=low
+
+  * First debian release.
+
+ -- Tim-Philipp Müller <t.i.m@orange.net>  Wed,   20 Nov 2002 20:10:26 +0000
+
+Local variables:
+mode: debian-changelog
+End:
