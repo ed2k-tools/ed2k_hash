@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <FL/Fl.h>
+#include <FL/Fl.H>
 
 #include "MainWindow.h"
 #include "Configuration.h"

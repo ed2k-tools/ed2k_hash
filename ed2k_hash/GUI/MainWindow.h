@@ -20,11 +20,11 @@
 
 #include <FL/Fl_Window.h>
 
-#include <FL/Fl_Multi_Browser.h>
-#include <FL/Fl_Menu_Bar.h>
-#include <FL/Fl_Progress.h>
-#include <FL/Fl_Tile.h>
-#include <FL/Fl_Pack.h>
+#include <FL/Fl_Multi_Browser.H>
+#include <FL/Fl_Menu_Bar.H>
+#include <FL/Fl_Progress.H>
+#include <FL/Fl_Tile.H>
+#include <FL/Fl_Pack.H>
 
 #include "JobQueue.h"
 

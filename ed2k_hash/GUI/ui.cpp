@@ -25,7 +25,7 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id: ui.cpp,v 1.1 2003/05/25 11:55:34 fraca7 Exp $
+// $Id: ui.cpp,v 1.2 2003/05/25 13:17:59 fraca7 Exp $
 
 extern "C" {
 
@@ -126,13 +126,13 @@ int ui_run (SList *filelist)
           {
              if (!option_htmllink)
              {
-                ui_print ("ed2k://|file|%s|%u|%s|\t%s",
+                ui_print ("ed2k://|file|%s|%u|%s|\t@b%s",
                           info.basename,
                           info.size,
                           info.ed2k_hash_str,
                           info.basename);
              } else {
-                ui_print ("<a href=\"ed2k://|file|%s|%u|%s|\">%s</a>\t%s",
+                ui_print ("<a href=\"ed2k://|file|%s|%u|%s|\">%s</a>\t@b%s",
                           info.basename,
                           info.size,
                           info.ed2k_hash_str,
@@ -167,4 +167,4 @@ int ui_update(char *filepath, unsigned int size, unsigned int done)
     return 0;
 }
 
-static const char* _rcsid_ui __attribute__((unused)) = "$Id: ui.cpp,v 1.1 2003/05/25 11:55:34 fraca7 Exp $";
+static const char* _rcsid_ui __attribute__((unused)) = "$Id: ui.cpp,v 1.2 2003/05/25 13:17:59 fraca7 Exp $";

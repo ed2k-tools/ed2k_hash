@@ -26,14 +26,14 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id$
+// $Id: About.h,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
 
 #ifndef _ABOUT_H
 #define _ABOUT_H
 
-#include <FL/Fl_Window.h>
-#include <FL/Fl_Button.h>
-#include <FL/Fl_Multiline_Output.h>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Multiline_Output.H>
 
 class About : public Fl_Window
 {

@@ -26,14 +26,14 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id$
+// $Id: Configuration.h,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
 
 #ifndef _CONFIGURATION_H
 #define _CONFIGURATION_H
 
-#include <FL/Fl_Button.h>
-#include <FL/Fl_Window.h>
-#include <FL/Fl_Pack.h>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Pack.H>
 
 // Globals
 extern int cf_htmllink;

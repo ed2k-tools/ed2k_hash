@@ -20,10 +20,10 @@
 #include "Configuration.h"
 #include "About.h"
 
-#include <FL/Fl_Menu_Bar.h>
-#include <FL/Fl_Menu_Item.h>
-#include <FL/Fl_File_Chooser.h>
-#include <FL/fl_ask.h>
+#include <FL/Fl_Menu_Bar.H>
+#include <FL/Fl_Menu_Item.H>
+#include <FL/Fl_File_Chooser.H>
+#include <FL/fl_ask.H>
 
 #ifdef __WIN32__
 #include <FL/x.h>
