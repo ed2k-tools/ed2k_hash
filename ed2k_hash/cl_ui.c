@@ -94,7 +94,12 @@ ui_printerr (const char *format, ...)
 	if (!format)
 		return -1;
 
+#ifdef __WIN32
+        /* 14/02/2003 JL: alloca doesn't seem to be this secure on Win2k :) */
+        errformat = (char*)malloc(strlen(PRINTERR_PREFIX)+strlen(format)+2);
+#else
 	errformat = alloca(strlen(PRINTERR_PREFIX)+strlen(format)+2);
+#endif
 	if (!errformat)
 		return -1;
 
@@ -104,6 +109,11 @@ ui_printerr (const char *format, ...)
 	va_start(args,format);
 	ret = vfprintf(stderr,errformat,args);
 	va_end(args);
+
+#ifdef __WIN32
+        free(errformat);
+#endif
+
 	return ret;
 }
 
