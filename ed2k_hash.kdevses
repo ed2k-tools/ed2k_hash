@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE KDevPrjSession>
+<KDevPrjSession>
+ <LastCompileConfig>(Default)</LastCompileConfig>
+ <Mainframe MaximizeMode="1" />
+ <DocsAndViews NumberOfDocuments="7" >
+  <Doc0 CursorPosLine="43" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="0" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/main.c" >
+   <View0 Top="0" Width="406" Attach="1" Height="329" Left="0" Focus="1" Type="KWriteView" MinMaxMode="2" />
+  </Doc0>
+  <Doc1 CursorPosLine="26" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="44" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/cl_ui.h" >
+   <View0 Top="50" Width="779" Attach="1" Height="585" Left="27" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc1>
+  <Doc2 CursorPosLine="114" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="7" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/cl_ui.c" >
+   <View0 Top="74" Width="779" Attach="1" Height="585" Left="51" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc2>
+  <Doc3 CursorPosLine="21" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="46" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/options.h" >
+   <View0 Top="98" Width="779" Attach="1" Height="585" Left="75" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc3>
+  <Doc4 CursorPosLine="76" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="0" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/options.c" >
+   <View0 Top="122" Width="779" Attach="1" Height="585" Left="99" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc4>
+  <Doc5 CursorPosLine="32" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="41" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/linkedlist.h" >
+   <View0 Top="146" Width="779" Attach="1" Height="585" Left="123" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc5>
+  <Doc6 CursorPosLine="66" Type="KWriteDoc" NumberOfViews="1" CursorPosCol="0" FileName="/home/tim/projects/ed2k_hash/ed2k_hash/linkedlist.c" >
+   <View0 Top="170" Width="779" Attach="1" Height="585" Left="147" Focus="0" Type="KWriteView" MinMaxMode="0" />
+  </Doc6>
+ </DocsAndViews>
+</KDevPrjSession>
