@@ -1,0 +1,11 @@
+
+CC=gcc
+#CFLAGS=-g -Wall
+CFLAGS=-O2 -march=i486
+CPPFLAGS=-I..
+OBJS=win32main.o rc.o uifuncs.o reg.o param.o config.o
+
+all: $(OBJS)
+
+rc.o: win32main.h win32main.rc
+	windres -o rc.o win32main.rc
