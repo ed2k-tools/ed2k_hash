@@ -394,6 +394,7 @@ int handle_unknown_message(int)
     {
         COPYDATASTRUCT *d = (COPYDATASTRUCT*)fl_msg.lParam;
         MSG_DATA_STRUCT *data = (MSG_DATA_STRUCT*)d->lpData;
+        data-opts.htmlfull = cf_htmlfull;
         AppWindow->addJob(&data->str[0],
                           &data->opts);
         return 1;
