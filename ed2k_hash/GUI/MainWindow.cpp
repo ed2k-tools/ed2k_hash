@@ -192,6 +192,7 @@ void MainWindow::ui_print(const char *msg)
     Fl::lock();
     _list->add(msg);
     Fl::unlock();
+    Fl::awake(_list);
 }
 
 void MainWindow::ui_printerr(const char *msg)
@@ -235,7 +236,11 @@ void MainWindow::copy_cb(Fl_Widget *w)
     }
     data[l] = 0;
 
-    Fl::copy(data, l+1, 0); // FIXME 1 sous Windows ?
+#ifdef __WIN32__
+    Fl::copy(data, l+1, 1);
+#else
+    Fl::copy(data, l+1, 0);
+#endif
     free(data);
 }
 
@@ -416,7 +421,7 @@ int handle_unknown_message(int)
     {
         COPYDATASTRUCT *d = (COPYDATASTRUCT*)fl_msg.lParam;
         MSG_DATA_STRUCT *data = (MSG_DATA_STRUCT*)d->lpData;
-        data-opts.htmlfull = cf_htmlfull;
+        data->opts.htmlfull = cf_htmlfull;
         AppWindow->addJob(&data->str[0],
                           &data->opts);
         return 1;
