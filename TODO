@@ -4,7 +4,7 @@ Implement for windows:
 	in main.c : is_directory ()
 
 Implement:
-	in options.c : options_process_cl_option() - print options help on '-h'
+	-
 
 
 

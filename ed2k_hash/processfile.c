@@ -23,7 +23,7 @@
 
 /* for nmap on unix systems             */
 /* TODO: add other *nix OS defines here */
-#ifdef __linux
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__))
 #  include <unistd.h>
 #  include <sys/mman.h>
 #  include <sys/types.h>
