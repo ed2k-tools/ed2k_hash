@@ -14,6 +14,14 @@ make install
 
 should do the trick.
 
+You will need the libraries listed below AND their respective
+ development headers (-dev or -devel package).
+
+If you checked out ed2k_hash from CVS, you will need to run
+ ./autogen.sh in order to create the 'configure' script. You
+ will need aclocal, autoconf, and automake for this.
+
+
 DEPENDENCIES
 
 FLTK 1.1.x (tested with 1.1.3): http://fltk.sourceforge.net/
