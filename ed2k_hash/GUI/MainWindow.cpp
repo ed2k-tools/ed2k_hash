@@ -38,8 +38,8 @@ MainWindow::MainWindow()
     static Fl_Menu_Item menu_items[] = {
       { "&File", FL_ALT + 'f', 0, 0, FL_SUBMENU },
         { "Add &files...", FL_CTRL + FL_ALT + 'f', &MainWindow::_add_file_cb, this },
-        { "Add &directory...", FL_CTRL + FL_ALT + 'd',  &MainWindow::_add_dir_cb, this },
-        { "", 0, 0, 0, FL_MENU_DIVIDER | FL_MENU_INACTIVE },
+        { "Add &directory...", FL_CTRL + FL_ALT + 'd',  &MainWindow::_add_dir_cb, this, FL_MENU_DIVIDER },
+//        { "", 0, 0, 0, FL_MENU_DIVIDER | FL_MENU_INACTIVE },
         { "&Quit", FL_CTRL + 'q', &MainWindow::_quit_cb, this },
         { 0 },
       { "&Edit", FL_ALT + 'e', 0, 0, FL_SUBMENU },

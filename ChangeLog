@@ -1,0 +1,319 @@
+2003-06-28 08:30  fraca7
+
+	* ed2k_hash/GUI/: About.cpp, configure.in: updated version number
+
+2003-06-24 23:51  uberdork
+
+	* ed2k_hash/processfile.c: reverted wrong 'fix'
+
+2003-06-24 00:14  uberdork
+
+	* ed2k_hash/processfile.c: fix for files exactly 9278000 bytes
+	  large
+
+2003-06-15 15:54  fraca7
+
+	* ed2k_hash/GUI/: About.h, Configuration.cpp, Configuration.h,
+	  MainWindow.cpp, MainWindow.h, gui.cpp, ui.cpp: changed .h to .H
+	  for FLTK includes
+
+2003-06-12 20:28  uberdork
+
+	* ed2k_hash/GUI/README: added comments about autogen.sh and about
+	  development headers
+
+2003-06-12 20:25  uberdork
+
+	* ed2k_hash/GUI/cvs-clean.pl: added cvs-clean script
+
+2003-06-12 20:15  uberdork
+
+	* ed2k_hash/GUI/autogen.sh: added autogen.sh script for *nix
+	  systems
+
+2003-05-25 15:33  fraca7
+
+	* ed2k_hash/GUI/ShellExt/: CtxMenu.ncb, CtxMenu.opt, CtxMenu.plg,
+	  ShUtils.cpp: Added 2 entries in context menu
+
+2003-05-25 15:23  fraca7
+
+	* ed2k_hash/GUI/: ShellExt/CtxMenu.cpp, ShellExt/CtxMenu.def,
+	  ShellExt/CtxMenu.h, ShellExt/CtxMenu.ncb, ShellExt/CtxMenu.opt,
+	  ShellExt/CtxMenu.plg, ShellExt/FileProcess.cpp,
+	  ShellExt/FileProcess.h, ShellExt/Priv.h, ShellExt/ShUtils.cpp,
+	  ShellExt/ShUtils.h, ShellExt/ShellCtxMenu.cpp,
+	  ShellExt/ShellExt.cpp, ShellExt/ShellExt.h,
+	  ShellExt/ShellExtReg.cpp, ShellExt/StdAfx.cpp, ShellExt/StdAfx.h,
+	  ShellExt/ThreadStruct.h, ShellExt/resource.h, MainWindow.cpp:
+	  Added 2 entries in context menu
+
+2003-05-25 15:15  fraca7
+
+	* ed2k_hash/GUI/: ed2k_hash.dev, MainWindow.cpp, gui.cpp,
+	  Makefile.win: last locking fixes, I hope
+
+2003-05-25 14:37  fraca7
+
+	* ed2k_hash/GUI/: MainWindow.cpp, Makefile.win: more locking fixes
+
+2003-05-25 14:20  fraca7
+
+	* ed2k_hash/GUI/MainWindow.cpp: LF fix
+
+2003-05-25 14:17  fraca7
+
+	* ed2k_hash/GUI/: MainWindow.cpp, MainWindow.h, ui.cpp: fixed
+	  locking issues
+
+2003-05-25 13:25  fraca7
+
+	* ed2k_hash/GUI/MainWindow.cpp: shell ext related fix
+
+2003-05-25 13:09  fraca7
+
+	* ed2k_hash/GUI/ShellExt/CtxMenu.def: forgot the .def
+
+2003-05-25 12:59  fraca7
+
+	* ed2k_hash/GUI/configure.in: oops
+
+2003-05-25 12:55  fraca7
+
+	* ed2k_hash/: Makefile.mingw32, main.c, processfile.c, GUI/AUTHORS,
+	  GUI/About.cpp, GUI/About.h, GUI/COPYING, GUI/ChangeLog,
+	  GUI/Configuration.cpp, GUI/Configuration.h, GUI/Event.cpp,
+	  GUI/Event.h, GUI/INSTALL, GUI/JobQueue.cpp, GUI/JobQueue.h,
+	  GUI/MainWindow.cpp, GUI/MainWindow.h, GUI/Makefile.am,
+	  GUI/Makefile.win, GUI/Mutex.cpp, GUI/Mutex.h, GUI/NEWS,
+	  GUI/README, GUI/Semaphore.cpp, GUI/Semaphore.h, GUI/Thread.cpp,
+	  GUI/Thread.h, GUI/configure.in, GUI/ed2k_hash.dev,
+	  GUI/ed2k_hash.nsi, GUI/gui.cpp, GUI/main.cpp, GUI/ui.cpp,
+	  GUI/ShellExt/CtxMenu.cpp, GUI/ShellExt/CtxMenu.dsp,
+	  GUI/ShellExt/CtxMenu.dsw, GUI/ShellExt/CtxMenu.h,
+	  GUI/ShellExt/CtxMenu.ncb, GUI/ShellExt/CtxMenu.opt,
+	  GUI/ShellExt/CtxMenu.plg, GUI/ShellExt/CtxMenu.rc,
+	  GUI/ShellExt/FileProcess.cpp, GUI/ShellExt/FileProcess.h,
+	  GUI/ShellExt/Priv.h, GUI/ShellExt/ShUtils.cpp,
+	  GUI/ShellExt/ShUtils.h, GUI/ShellExt/ShellCtxMenu.cpp,
+	  GUI/ShellExt/ShellExt.cpp, GUI/ShellExt/ShellExt.h,
+	  GUI/ShellExt/ShellExtReg.cpp, GUI/ShellExt/StdAfx.cpp,
+	  GUI/ShellExt/StdAfx.h, GUI/ShellExt/ThreadStruct.h,
+	  GUI/ShellExt/resource.h, GUI/ShellExt/res/CtxMenu.rc2,
+	  win32/Makefile.mingw32, win32/config.c, win32/config.h,
+	  win32/ed2k_hash.nsi, win32/param.c, win32/param.h, win32/reg.c,
+	  win32/reg.h, win32/uifuncs.c, win32/uifuncs.h, win32/win32main.c,
+	  win32/win32main.h, win32/win32main.rc: Complete rewrite of the
+	  GUI
+
+2003-05-17 14:54  fraca7
+
+	* ed2k_hash/GUI/: MainWindow.cpp, MainWindow.h, Makefile.win,
+	  ed2k_hash.dev, ed2k_hash_private.h, ed2k_hash_private.rc,
+	  main.cpp: Began refactoring the GUI :)
+
+2003-05-17 09:56  fraca7
+
+	* ed2k_hash/win32/: uifuncs.c, win32main.rc: no message
+
+2003-05-17 09:42  fraca7
+
+	* ed2k_hash/processfile.c: bug #739084
+
+2003-04-29 13:31  uberdork
+
+	* ed2k_hash/: main.c, processfile.c: some mmap() fixes for unix
+	  systems; bug fix for files where filesize an exact multiple of
+	  9500kB; added defines for solaris sparc; patch #706291 by Piotr
+	  Klaban (macler@users.sourceforge.net)
+
+2003-03-30 10:11  fraca7
+
+	* ed2k_hash/: processfile.c, win32/uifuncs.c, win32/win32main.c:
+	  Added progress bar and status messages
+
+2003-03-30 09:19  fraca7
+
+	* ed2k_hash/win32/uifuncs.c: 8.3 filenames bug fixed
+
+2003-03-18 18:18  fraca7
+
+	* ed2k_hash/win32/win32main.c: Stupid beginner error!
+
+2003-02-14 09:39  fraca7
+
+	* ed2k_hash/cl_ui.c: Error messages caused sigsegv under win2k
+	  (command-line version)
+
+2003-01-14 23:31  uberdork
+
+	* ed2k_hash/win32/: config.c, param.c, reg.c, uifuncs.c,
+	  win32main.c: added WIN32 define check for .c files so compilation
+	  under unix is not a problem
+
+2003-01-14 22:14  uberdork
+
+	* AUTHORS: authors updated
+
+2003-01-14 22:10  uberdork
+
+	* Makefile.in, configure, configure.in, configure.in.in,
+	  ed2k_hash.kdevprj, subdirs, debian/changelog,
+	  ed2k_hash/Makefile.in, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.in: updated admin files again
+
+2003-01-14 21:52  uberdork
+
+	* Makefile.am, Makefile.in, ed2k_hash.kdevprj, ed2k_hash.kdevses,
+	  ed2k_hash/Makefile.am, ed2k_hash/Makefile.in,
+	  ed2k_hash/docs/Makefile.in, ed2k_hash/docs/en/Makefile.in:
+	  updated Makefiles
+
+2003-01-12 18:59  fraca7
+
+	* ed2k_hash/win32/: Makefile.mingw32, config.c, config.h,
+	  ed2k_hash.nsi, param.c, param.h, reg.c, reg.h, uifuncs.c,
+	  uifuncs.h, win32main.c, win32main.h, win32main.rc: win32 GUI
+	  first commit
+
+2003-01-12 18:41  fraca7
+
+	* ed2k_hash/: Makefile.mingw32, main.c: some tricks for building
+	  the GUI for Win32
+
+2003-01-11 14:15  uberdork
+
+	* ed2k_hash/main.c: some fixes for the win32 part
+
+2003-01-11 14:13  uberdork
+
+	* ed2k_hash/Makefile.mingw32: makefile for mingw32, submitted by
+	  Jerome Laheurte <jerome@fraca7.homeunix.net>
+
+2003-01-11 12:33  uberdork
+
+	* AUTHORS: AUTHORS
+
+2003-01-11 12:29  uberdork
+
+	* ed2k_hash/: cl_ui.c, main.c, processfile.c, processfile.h:
+	  directory stuff for WIN32 implemented, patch submitted by Jerome
+	  Laheurte <jerome@fraca7.homeunix.net>; memory leaks fixed
+
+2003-01-04 03:13  uberdork
+
+	* Makefile.in, configure, ed2k_hash.kdevses, subdirs,
+	  ed2k_hash/Makefile.in, ed2k_hash/cl_ui.c, ed2k_hash/global.h,
+	  ed2k_hash/linkedlist.c, ed2k_hash/main.c, ed2k_hash/md4.c,
+	  ed2k_hash/options.c, ed2k_hash/processfile.c,
+	  ed2k_hash/docs/Makefile.in, ed2k_hash/docs/en/Makefile.in: more
+	  WIN32 changes (untested)
+
+2003-01-04 02:26  uberdork
+
+	* Makefile.in, ed2k_hash.kdevses, ed2k_hash/Makefile.in,
+	  ed2k_hash/cl_ui.c, ed2k_hash/linkedlist.c, ed2k_hash/main.c,
+	  ed2k_hash/processfile.c, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.in: some additional includes for WIN32
+	  (probably more missing)
+
+2002-12-11 17:59  uberdork
+
+	* debian/changelog: none
+
+2002-12-11 17:23  uberdork
+
+	* Makefile.in, configure, configure.in, configure.in.in,
+	  ed2k_hash/Makefile.in, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.in: none
+
+2002-11-22 15:43  uberdork
+
+	* Makefile.in, ed2k_hash.kdevprj, subdirs, ed2k_hash/Makefile.am,
+	  ed2k_hash/Makefile.in, ed2k_hash/global.h, ed2k_hash/main.c,
+	  ed2k_hash/processfile.c, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.in: MacOSX compilation issues, take 2
+
+2002-11-20 20:13  uberdork
+
+	* Makefile.in, configure, configure.in, configure.in.in,
+	  ed2k_hash.kdevses, debian/changelog, debian/control,
+	  debian/rules, ed2k_hash/Makefile.in, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.in: added debian directory
+
+2002-11-20 19:51  uberdork
+
+	* README: updated README
+
+2002-11-20 19:48  uberdork
+
+	* Makefile.in, TODO, ed2k_hash.kdevses, ed2k_hash/Makefile.in,
+	  ed2k_hash/main.c, ed2k_hash/processfile.c,
+	  ed2k_hash/docs/Makefile.in, ed2k_hash/docs/en/Makefile.in: fixed
+	  compilation on Mac OS X and FreeBSD (hopefully)
+
+2002-10-15 00:47  uberdork
+
+	* ed2k_hash/processfile.c: fixed bug in new mmap-routine (files
+	  were opened in read+write mode)
+
+2002-10-14 21:10  uberdork
+
+	* ed2k_hash/processfile.c: use mmap() for file access (which is
+	  faster and uses less cpu) if system supports it. patch by Thomas
+	  Lussnig <thomas.lussnig@bewegungsmelder.de>
+
+2002-09-04 18:24  uberdork
+
+	* Makefile.am, Makefile.dist, TODO, configure.in.in, special.m4.in,
+	  AUTHORS, COPYING, ChangeLog, INSTALL, README, ed2k_hash.kdevprj,
+	  ed2k_hash.lsm, acinclude.m4, configure.files, subdirs,
+	  aclocal.m4, Makefile.in, config.h.in, configure, configure.in,
+	  ed2k_hash.kdevses, stamp-h.in, admin/conf.change.pl,
+	  admin/config.sub, admin/configure.in.min, admin/libtool.m4.in,
+	  admin/am_edit, admin/depcomp, admin/ltcf-c.sh, admin/ltconfig,
+	  admin/ChangeLog, admin/acinclude.m4.in, admin/config.guess,
+	  admin/ylwrap, admin/Makefile.common, admin/debianrules,
+	  admin/ltcf-cxx.sh, admin/missing, admin/mkinstalldirs,
+	  admin/config.pl, admin/ltcf-gcj.sh, admin/ltmain.sh,
+	  admin/install-sh, ed2k_hash/Makefile.am, ed2k_hash/Makefile.in,
+	  ed2k_hash/cl_ui.c, ed2k_hash/cl_ui.h, ed2k_hash/linkedlist.c,
+	  ed2k_hash/linkedlist.h, ed2k_hash/main.c, ed2k_hash/md4.c,
+	  ed2k_hash/md4.h, ed2k_hash/options.c, ed2k_hash/options.h,
+	  ed2k_hash/processfile.c, ed2k_hash/processfile.h, ed2k_hash/ui.h,
+	  ed2k_hash/docs/Makefile.am, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.am, ed2k_hash/docs/en/Makefile.in,
+	  ed2k_hash/docs/en/index-1.html, ed2k_hash/docs/en/index-2.html,
+	  ed2k_hash/docs/en/index-3.html, ed2k_hash/docs/en/index-4.html,
+	  ed2k_hash/docs/en/index-5.html, ed2k_hash/docs/en/index.html,
+	  ed2k_hash/docs/en/index.sgml, ed2k_hash/docs/en/index-6.html,
+	  ed2k_hash/templates/cpp_template,
+	  ed2k_hash/templates/header_template: Initial revision
+
+2002-09-04 18:24  uberdork
+
+	* Makefile.am, Makefile.dist, TODO, configure.in.in, special.m4.in,
+	  AUTHORS, COPYING, ChangeLog, INSTALL, README, ed2k_hash.kdevprj,
+	  ed2k_hash.lsm, acinclude.m4, configure.files, subdirs,
+	  aclocal.m4, Makefile.in, config.h.in, configure, configure.in,
+	  ed2k_hash.kdevses, stamp-h.in, admin/conf.change.pl,
+	  admin/config.sub, admin/configure.in.min, admin/libtool.m4.in,
+	  admin/am_edit, admin/depcomp, admin/ltcf-c.sh, admin/ltconfig,
+	  admin/ChangeLog, admin/acinclude.m4.in, admin/config.guess,
+	  admin/ylwrap, admin/Makefile.common, admin/debianrules,
+	  admin/ltcf-cxx.sh, admin/missing, admin/mkinstalldirs,
+	  admin/config.pl, admin/ltcf-gcj.sh, admin/ltmain.sh,
+	  admin/install-sh, ed2k_hash/Makefile.am, ed2k_hash/Makefile.in,
+	  ed2k_hash/cl_ui.c, ed2k_hash/cl_ui.h, ed2k_hash/linkedlist.c,
+	  ed2k_hash/linkedlist.h, ed2k_hash/main.c, ed2k_hash/md4.c,
+	  ed2k_hash/md4.h, ed2k_hash/options.c, ed2k_hash/options.h,
+	  ed2k_hash/processfile.c, ed2k_hash/processfile.h, ed2k_hash/ui.h,
+	  ed2k_hash/docs/Makefile.am, ed2k_hash/docs/Makefile.in,
+	  ed2k_hash/docs/en/Makefile.am, ed2k_hash/docs/en/Makefile.in,
+	  ed2k_hash/docs/en/index-1.html, ed2k_hash/docs/en/index-2.html,
+	  ed2k_hash/docs/en/index-3.html, ed2k_hash/docs/en/index-4.html,
+	  ed2k_hash/docs/en/index-5.html, ed2k_hash/docs/en/index.html,
+	  ed2k_hash/docs/en/index.sgml, ed2k_hash/docs/en/index-6.html,
+	  ed2k_hash/templates/cpp_template,
+	  ed2k_hash/templates/header_template: initial import into CVS
+
