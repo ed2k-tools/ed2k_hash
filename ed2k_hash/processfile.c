@@ -111,7 +111,7 @@ process_file (const char *fn, fileinfo *info)
 	if ((!fi.parthashes) || (!fi.ed2k_hash) || (!fi.ed2k_hash_str) || (!fi.filepath))
 		return 0;
 
-	if ((fd = open (fi.filepath, O_RDWR)) < 0)
+	if ((fd = open (fi.filepath, O_RDONLY)) < 0)
 	{
 		ui_printerr ("in %s - fopen(%s) failed: %s\n\n", __FUNCTION__, fi.filepath, strerror(errno));
 		return 0;
