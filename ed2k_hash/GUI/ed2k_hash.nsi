@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ed2k_hash"
-!define PRODUCT_VERSION "0.5.0"
+!define PRODUCT_VERSION "0.6.0"
 !define PRODUCT_WEB_SITE "http://ed2k.sourceforge.net/"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\ed2k_hash.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
@@ -65,8 +65,8 @@ Section "GUI tool" SEC02
 SectionEnd
 
 Section "Shell extension" SEC03
-  File "ShellExt\Release\ed2khashctx.dll"
-  RegDLL "$INSTDIR\ed2khashctx.dll"
+  File "ShellExt\ed2kshl.dll"
+  RegDLL "$INSTDIR\ed2kshl.dll"
   WriteRegStr HKCU "Software\ed2k_hash" "Install_Dir" "$INSTDIR"
 SectionEnd
 

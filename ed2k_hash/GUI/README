@@ -31,6 +31,3 @@ DEPENDENCIES
 
 FLTK 1.1.x (tested with 1.1.3): http://fltk.sourceforge.net/
 pthreads (you should already have this)
-
-For Win32, the Shell Extension builds with MSVC 6. Thanks to CodeGuru
-for the code sample, I wouldn't have figured it out by myself :)

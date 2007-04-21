@@ -26,7 +26,7 @@
     02111-1307 USA
 
 **********************************************************************/
-// $Id$
+// $Id: JobQueue.h,v 1.1 2003/05/25 11:55:33 fraca7 Exp $
 
 #ifndef _JOBQUEUE_H
 #define _JOBQUEUE_H
@@ -52,7 +52,7 @@ typedef struct
 typedef struct
 {
     OPT_STRUCT opts;
-    char str[1];
+    TCHAR str[1];
 } MSG_DATA_STRUCT;
 
 #endif

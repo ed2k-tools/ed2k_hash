@@ -21,7 +21,7 @@
 
 #ifndef HAVE_CONFIG_H		/* e.g. on windows plaform */
 # define PACKAGE	"ed2k_hash"
-# define VERSION	"0.5"
+# define VERSION	"0.6"
 #else
 # include <config.h>
 #endif /* ifndef HAVE_CONFIG_H */

@@ -1,0 +1,16 @@
+
+This  is  a  context  menu  shell  extension  for  the  ed2k  GUI  for
+Windows. It  has been  completely rewritten in  pure C++ (no  more MFC
+stuff) and builds with GCC.
+
+On some  versions, you  may have to  fix a  bug in Mingw's  headers in
+order for this to compile.  In your include directory, find basetyps.h
+and search for the line
+
+#   define DECLARE_INTERFACE_(i,b) interface i : public b
+
+Replace it with
+
+#   define DECLARE_INTERFACE_(i,b) interface i : virtual public b
+
+and it should work.

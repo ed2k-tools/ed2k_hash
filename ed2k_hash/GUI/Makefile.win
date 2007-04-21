@@ -1,5 +1,5 @@
 # Project: ed2k_hash_GUI
-# Makefile created by Dev-C++ 4.9.9.0
+# Makefile created by Dev-C++ 4.9.9.2
 
 CPP  = g++.exe
 CC   = gcc.exe
@@ -7,12 +7,13 @@ WINDRES = windres.exe
 RES  = 
 OBJ  = MainWindow.o ui.o JobQueue.o Mutex.o Semaphore.o Thread.o Configuration.o Event.o ../linkedlist.o ../main.o ../md4.o ../options.o ../processfile.o gui.o About.o $(RES)
 LINKOBJ  = MainWindow.o ui.o JobQueue.o Mutex.o Semaphore.o Thread.o Configuration.o Event.o ../linkedlist.o ../main.o ../md4.o ../options.o ../processfile.o gui.o About.o $(RES)
-LIBS =  -L"D:/Dev-Cpp/lib" -L"C:/Developpement/fltk-1.1.3/lib" -mwindows -lfltk -lole32 -luuid -lcomctl32 -lwsock32 -lm  
-INCS =  -I"D:/Dev-Cpp/include"  -I".." 
-CXXINCS =  -I"D:/Dev-Cpp/include/c++"  -I"D:/Dev-Cpp/include/c++/mingw32"  -I"D:/Dev-Cpp/include/c++/backward"  -I"D:/Dev-Cpp/include"  -I".." 
+LIBS =  -L"C:/Dev-Cpp/lib" -L"C:/Developpement/fltk-1.1.3/lib" -mwindows -lfltk -lole32 -luuid -lcomctl32 -lwsock32 -lm  
+INCS =  -I"C:/Dev-Cpp/include"  -I".." 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I".." 
 BIN  = ed2k_hash_gui.exe
 CXXFLAGS = $(CXXINCS) -D__WIN32 -DPROTOTYPES=1 -D_GUI   -fexpensive-optimizations -O3
 CFLAGS = $(INCS) -DWIN32 -mms-bitfields -DPROTOTYPES=1 -D_GUI   -fexpensive-optimizations -O3
+RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -20,7 +21,7 @@ all: all-before ed2k_hash_gui.exe all-after
 
 
 clean: clean-custom
-	rm -f $(OBJ) $(BIN)
+	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o "ed2k_hash_gui.exe" $(LIBS)
