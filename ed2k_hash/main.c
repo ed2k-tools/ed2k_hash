@@ -33,11 +33,15 @@
 
 #include "global.h"
 
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <unistd.h>
-# include <dirent.h>
+#ifdef HAVE_SYS_TYPES_H
+#include <sys/types.h>
+#endif
+#ifdef HAVE_SYS_STAT_H
+#include <sys/stat.h>
+#endif
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#include <dirent.h> /* just assume this is available on all unixy systems */
 #endif
 
 #ifdef __WIN32
@@ -251,7 +255,7 @@ is_directory (char *fn)
  *
  */
 
-#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)))
+#if (defined(__linux__) || defined(__MAC_OS_X__) || defined(__FreeBSD__) || (defined(sun) && defined(__svr4__)) || (defined(HAVE_UNISTD_H) && defined(__unix)))
 
 static int
 read_directory (char *fn, SList **p_list)

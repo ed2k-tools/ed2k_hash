@@ -19,6 +19,10 @@ AM_CONFIG_HEADER(config.h)
 
 AC_LANG_CPLUSPLUS
 
+AC_CHECK_HEADERS([sys/stat.h])
+AC_CHECK_HEADERS([sys/types.h])
+AC_CHECK_HEADERS([unistd.h])
+
 dnl ==============================================================
 dnl Check for the FLTK toolkit.
 dnl

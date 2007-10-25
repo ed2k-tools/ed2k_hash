@@ -1,5 +1,13 @@
 2007-10-25  uberdork
 
+	* configure.ac:
+	* ed2k_hash/main.c:
+	  Make sure we include sys/types.h and all that for all unix systems
+	  where it is available, fixes problems with undefined structs
+	  on OpenBSD (#1506789).
+
+2007-10-25  uberdork
+
 	patch by: lazy.et  <lazyet users sourceforge net>
 
 	* ed2k_hash/cl_ui.c (ui_setoptions):
