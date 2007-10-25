@@ -135,11 +135,12 @@ ui_setoptions (int argc, char *argv[])
 	if ((argc>1) && (argv))
 	{
 		i = 1;	/* the first argument is by convention the program name - skip that */
-		while ((i<argc) && (argv[i]) && (*(argv[i])=='-'))
+		while ((i<argc) && (argv[i]) && (*(argv[i])=='-') && (argv[i][1]!='-'))
 		{
 			options_process_cl_argument (argv, &i);
 			i++;
 		}
+		if (i<argc && !strcmp(argv[i],"--")) i++;
 	} else options_print_help_screen_and_exit();
 
 	return i;

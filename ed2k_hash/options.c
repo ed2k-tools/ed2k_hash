@@ -178,6 +178,7 @@ options_print_help_screen_and_exit (void)
 /*	ui_print ("\t-s\tbe silent, show not even errors (pretty useless really)\n"); */
 
 	ui_print ("\t-w\twait for keystroke when finished\n");
+	ui_print ("\t--\tend of options, used to process files named with a leading '-'\n");
 	ui_print ("\n");
 
 	if (!ui_cleanup())

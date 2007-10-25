@@ -1,5 +1,15 @@
 2007-10-25  uberdork
 
+	patch by: lazy.et  <lazyet users sourceforge net>
+
+	* ed2k_hash/cl_ui.c (ui_setoptions):
+	* ed2k_hash/options.c (options_print_help_screen_and_exit):
+	  Add -- command line option to separate option arguments from
+	  filenames, so that it's possible to hash files that start with a
+	  hyphen (without using an absolute path or ./-foo). Closes: #1462750
+
+2007-10-25  uberdork
+
 	* AUTHORS:
 	  Convert to UTF-8.
 
