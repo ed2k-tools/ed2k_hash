@@ -1,3 +1,16 @@
+2007-10-25  uberdork
+
+	Patch by: Dominik Mierzejewski <dominik greysector net>
+
+	* ed2k_hash/md4.c (MD4Init):
+	* ed2k_hash/md4.h (PROTOTYPES, POINTER, UINT2, UINT4, UINT4):
+	  Fix bug in MD4 calculation on platforms where sizeof(long) != 4,
+	  ie. x86-64 and most other 64-bit platforms.
+
+	* ed2k_hash/cl_ui.c:
+	* ed2k_hash/options.c:
+	  Include <string.h> to avoid compiler warnings.
+
 2004-11-07  uberdork
 	* ed2k_hash/processfile.c: Use _SC_PAGESIZE if defined, insted
 	  _SC_PAGE_SIZE, and user getpagesize() as fallback on BSD.

@@ -20,6 +20,8 @@
 
 #ifndef HAVE_OPENSSL
 
+#include <stdio.h>
+
 /* The MD4 hashing routines here are the reference implementation
  * from the MD4 RFC.
 */
@@ -113,6 +115,11 @@ MD4_CTX *context;                                        /* context */
   context->state[1] = 0xefcdab89;
   context->state[2] = 0x98badcfe;
   context->state[3] = 0x10325476;
+
+  if (sizeof (UINT4) != 4 || sizeof (UINT2) != 2) {
+    fprintf (stderr, "*** WARNING: standard types are the wrong size - hashes "
+        "will most likely be wrong! ***\n");
+  }
 }
 
 /* MD4 block update operation. Continues an MD4 message-digest

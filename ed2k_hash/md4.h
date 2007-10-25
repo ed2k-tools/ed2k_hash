@@ -18,6 +18,10 @@
 #ifndef _ed2k_hash_md4_h_included_
 #define _ed2k_hash_md4_h_included_
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 /* we could use the openssl md4 hashing routines instead of our own.
    Anyone care to add the configure skript check for openssl and the MD4 routines?
 */
@@ -59,6 +63,20 @@
 #define PROTOTYPES 0
 #endif
 
+#ifdef HAVE_STDINT_H
+#include <stdint.h>
+
+/* POINTER defines a generic pointer type */
+typedef uint8_t *POINTER;
+
+/* UINT2 defines a two byte word */
+typedef uint16_t UINT2;
+
+/* UINT4 defines a four byte word */
+typedef uint32_t UINT4;
+
+#else
+
 /* POINTER defines a generic pointer type */
 typedef unsigned char *POINTER;
 
@@ -66,7 +84,9 @@ typedef unsigned char *POINTER;
 typedef unsigned short int UINT2;
 
 /* UINT4 defines a four byte word */
-typedef unsigned long int UINT4;
+typedef unsigned int UINT4;
+
+#endif
 
 /* PROTO_LIST is defined depending on how PROTOTYPES is defined above.
    If using PROTOTYPES, then PROTO_LIST returns the list, otherwise it
