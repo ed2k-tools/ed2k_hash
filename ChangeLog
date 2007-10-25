@@ -1,5 +1,13 @@
 2007-10-25  uberdork
 
+	* AUTHORS:
+	  Convert to UTF-8.
+
+	* configure.ac:
+	  Bump version to 0.5.0.
+
+2007-10-25  uberdork
+
 	Patch by: Dominik Mierzejewski <dominik greysector net>
 
 	* ed2k_hash/md4.c (MD4Init):

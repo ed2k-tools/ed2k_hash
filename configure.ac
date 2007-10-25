@@ -5,7 +5,7 @@ dnl ==============================================================
 
 AC_INIT(ed2k_hash/processfile.h)
 
-AM_INIT_AUTOMAKE(ed2k_hash,0.4.0)
+AM_INIT_AUTOMAKE(ed2k_hash,0.5.0)
 
 dnl This ksh/zsh feature conflicts with `cd blah ; pwd`
 unset CDPATH
