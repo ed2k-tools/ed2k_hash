@@ -8,12 +8,12 @@
 
 2007-10-25  uberdork
 
-	Patch by: Dominik Mierzejewski <dominik greysector net>
+	Patch by: Dominik Mierzejewski <dominik greysector net> and Adam Dunn
 
 	* ed2k_hash/md4.c (MD4Init):
 	* ed2k_hash/md4.h (PROTOTYPES, POINTER, UINT2, UINT4, UINT4):
 	  Fix bug in MD4 calculation on platforms where sizeof(long) != 4,
-	  ie. x86-64 and most other 64-bit platforms.
+	  ie. x86-64 and most other 64-bit platforms (fixes #1491834).
 
 	* ed2k_hash/cl_ui.c:
 	* ed2k_hash/options.c:
